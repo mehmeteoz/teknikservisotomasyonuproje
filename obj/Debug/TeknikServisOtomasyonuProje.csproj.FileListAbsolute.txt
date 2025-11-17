@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\bin\Debug\TeknikServisOtomasyonuProje.exe.config
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\bin\Debug\TeknikServisOtomasyonuProje.exe
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\bin\Debug\TeknikServisOtomasyonuProje.pdb
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.Form1.resources
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.Properties.Resources.resources
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.csproj.GenerateResource.cache
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.exe
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.pdb
+C:\Users\user\source\repos\TeknikServisOtomasyonuProje\obj\Debug\TeknikServisOtomasyonuProje.exe.config
