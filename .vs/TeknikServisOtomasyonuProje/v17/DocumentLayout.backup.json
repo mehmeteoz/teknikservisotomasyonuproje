@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\merts\\onedrive\\belgeler\\github\\teknikservisotomasyonuproje\\sqlconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:sqlconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\girisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:girisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\merts\\onedrive\\belgeler\\github\\teknikservisotomasyonuproje\\sqlconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:sqlconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -26,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GirisForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\GirisForm.cs",
               "RelativeDocumentMoniker": "GirisForm.cs",
@@ -42,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SQLConnect.cs",
               "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\SQLConnect.cs",
               "RelativeDocumentMoniker": "SQLConnect.cs",
@@ -59,10 +59,11 @@
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\Form1.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\user\\source\\repos\\TeknikServisOtomasyonuProje\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T15:11:30.044Z"
+              "WhenOpened": "2025-11-16T15:11:30.044Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -74,7 +75,8 @@
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T15:41:30.824Z"
+              "WhenOpened": "2025-11-16T15:41:30.824Z",
+              "EditorCaption": ""
             }
           ]
         }
