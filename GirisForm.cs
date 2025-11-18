@@ -31,5 +31,10 @@ namespace TeknikServisOtomasyonuProje
         {
             // No action here. The GirisForm that opened this form will handle showing itself again.
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

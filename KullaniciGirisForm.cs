@@ -266,5 +266,10 @@ namespace TeknikServisOtomasyonuProje
 
             // database code to login user goes here
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

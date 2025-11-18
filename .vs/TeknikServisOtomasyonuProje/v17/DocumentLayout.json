@@ -1,21 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\",
+  "WorkspaceRootPath": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\source\\repos\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\merts\\onedrive\\belgeler\\github\\teknikservisotomasyonuproje\\girisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:girisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\merts\\onedrive\\belgeler\\github\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\merts\\onedrive\\belgeler\\github\\teknikservisotomasyonuproje\\girisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:girisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\source\\repos\\teknikservisotomasyonuproje\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,70 +34,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e78e0cf7-2e4e-48a7-bf7f-a94d9330a3be}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GirisForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\GirisForm.cs",
+              "RelativeDocumentMoniker": "GirisForm.cs",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\GirisForm.cs [Design]",
+              "RelativeToolTip": "GirisForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T21:26:21.197Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "KullaniciGirisForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
+              "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs [Design]",
+              "RelativeToolTip": "KullaniciGirisForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T16:33:02.285Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\Form1.cs",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAiwBQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAgwBQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T19:43:18.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "GirisForm.cs",
+              "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\GirisForm.cs",
+              "RelativeDocumentMoniker": "GirisForm.cs",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\GirisForm.cs",
+              "RelativeToolTip": "GirisForm.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAcwCQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T22:03:08.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "KullaniciGirisForm.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\KullaniciGirisForm.cs",
+              "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
               "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\KullaniciGirisForm.cs",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
               "RelativeToolTip": "KullaniciGirisForm.cs",
-              "ViewState": "AgIAANsAAAAAAAAAAAAAAOEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8BAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T16:33:35.249Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Fonksiyonlar.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\Fonksiyonlar.cs",
+              "DocumentMoniker": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
               "RelativeDocumentMoniker": "Fonksiyonlar.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\Fonksiyonlar.cs",
+              "ToolTip": "C:\\Users\\merts\\OneDrive\\Belgeler\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
               "RelativeToolTip": "Fonksiyonlar.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T17:25:22.19Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KullaniciGirisForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\KullaniciGirisForm.cs",
-              "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\TeknikServisOtomasyonuProje\\KullaniciGirisForm.cs [Design]",
-              "RelativeToolTip": "KullaniciGirisForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T16:33:02.285Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }
