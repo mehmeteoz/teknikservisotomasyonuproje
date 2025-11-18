@@ -21,23 +21,73 @@ GO
 
 -- Tables
 
-CREATE TABLE TestUser ( -- this is just a test table this wont be in the final product
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    phoneNum VARCHAR(20) UNIQUE
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY IDENTITY(1,1),
+    Role NVARCHAR(20) NOT NULL
+        CHECK (Role IN ('Customer', 'Staff', 'Admin')),
+    Email NVARCHAR(100) UNIQUE NOT NULL,
+    PasswordHash NVARCHAR(255) NOT NULL,
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    Phone NVARCHAR(20) UNIQUE NOT NULL,
+    CreatedAt DATETIME DEFAULT(GETDATE())
 );
+
+CREATE TABLE ServiceRecords (
+    ServiceID INT PRIMARY KEY IDENTITY(1,1),
+    CustomerID INT NOT NULL,
+    AssignedStaffID INT NULL,
+    DeviceType NVARCHAR(50),
+    Brand NVARCHAR(50),
+    Model NVARCHAR(50),
+    SerialNumber NVARCHAR(50),
+    ProblemDescription NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL CHECK (Status IN (
+        'Talep Alýndý',
+        'Personele Atandý',
+        'Ýþlemde',
+        'Tamamlandý',
+        'Teslime Hazýr',
+        'Teslim Edildi',
+        'Ýptal Edildi'
+    )),
+    CreatedAt DATETIME DEFAULT(GETDATE()),
+    ClosedAt DATETIME NULL,
+    FOREIGN KEY (CustomerID) REFERENCES Users(UserID),
+    FOREIGN KEY (AssignedStaffID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE ServiceOperations (
+    OperationID INT PRIMARY KEY IDENTITY(1,1),
+    ServiceID INT NOT NULL,
+    Description NVARCHAR(MAX),
+    Cost DECIMAL(10,2),
+    PerformedAt DATETIME DEFAULT(GETDATE()),
+    FOREIGN KEY (ServiceID) REFERENCES ServiceRecords(ServiceID)
+);
+
+CREATE TABLE ServiceComments (
+    CommentID INT PRIMARY KEY IDENTITY(1,1),
+    ServiceID INT NOT NULL,
+    CustomerID INT NOT NULL,
+    Rating INT CHECK (Rating BETWEEN 1 AND 5),
+    CommentText NVARCHAR(MAX),
+    CreatedAt DATETIME DEFAULT(GETDATE()),
+    FOREIGN KEY (ServiceID) REFERENCES ServiceRecords(ServiceID),
+    FOREIGN KEY (CustomerID) REFERENCES Users(UserID)
+);
+
 
 -- Inserts
 
--- Test User
-INSERT INTO TestUser(name,password,email,phoneNum) VALUES ('First User', '12345', 'firstuser01@test.com', '05516667711');
-INSERT INTO TestUser(name,password,email,phoneNum) VALUES ('Second User', '54321', 'seconduser02@test.com', '05526667722');
-INSERT INTO TestUser(name,password,email,phoneNum) VALUES ('Third User', '67890', 'thirduser03@test.com', '05536667733');
+-- Users
+INSERT INTO Users (Role, Email, PasswordHash, FirstName, LastName, Phone)
+VALUES 
+ ('Customer', 'ilk@test.com', '123456789', 'Ahmet', 'Yýlmaz', '5551234567');
+
 
 GO
 
 -- end of file
 
-select * from TestUser;
+select * from Users;

@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.passwordTB1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.usernameTB1 = new System.Windows.Forms.TextBox();
+            this.emailTB1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -40,16 +40,18 @@
             this.kayit = new System.Windows.Forms.TabPage();
             this.phoneNumMTB = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.EmailTB = new System.Windows.Forms.TextBox();
+            this.EmailTB2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.confirmPasswordTB = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.kayitBtn = new System.Windows.Forms.Button();
-            this.usernameTB2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.passwordTB2 = new System.Windows.Forms.TextBox();
+            this.firstNameTB = new System.Windows.Forms.TextBox();
+            this.Ad = new System.Windows.Forms.Label();
+            this.lastNameTB = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.giris.SuspendLayout();
             this.kayit.SuspendLayout();
@@ -70,11 +72,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Location = new System.Drawing.Point(65, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 25);
+            this.label2.Size = new System.Drawing.Size(60, 25);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Kullanıcı Adı";
+            this.label2.Text = "Email";
             // 
             // passwordTB1
             // 
@@ -94,13 +96,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Şifre";
             // 
-            // usernameTB1
+            // emailTB1
             // 
-            this.usernameTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.usernameTB1.Location = new System.Drawing.Point(131, 68);
-            this.usernameTB1.Name = "usernameTB1";
-            this.usernameTB1.Size = new System.Drawing.Size(210, 30);
-            this.usernameTB1.TabIndex = 7;
+            this.emailTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.emailTB1.Location = new System.Drawing.Point(131, 68);
+            this.emailTB1.Name = "emailTB1";
+            this.emailTB1.Size = new System.Drawing.Size(210, 30);
+            this.emailTB1.TabIndex = 7;
             // 
             // checkBox1
             // 
@@ -131,7 +133,7 @@
             this.tabControl1.Location = new System.Drawing.Point(6, 53);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(431, 337);
+            this.tabControl1.Size = new System.Drawing.Size(431, 399);
             this.tabControl1.TabIndex = 11;
             this.tabControl1.TabStop = false;
             // 
@@ -139,36 +141,38 @@
             // 
             this.giris.Controls.Add(this.checkBox1);
             this.giris.Controls.Add(this.button1);
-            this.giris.Controls.Add(this.usernameTB1);
+            this.giris.Controls.Add(this.emailTB1);
             this.giris.Controls.Add(this.label3);
             this.giris.Controls.Add(this.label2);
             this.giris.Controls.Add(this.passwordTB1);
             this.giris.Location = new System.Drawing.Point(4, 22);
             this.giris.Name = "giris";
             this.giris.Padding = new System.Windows.Forms.Padding(3);
-            this.giris.Size = new System.Drawing.Size(423, 311);
+            this.giris.Size = new System.Drawing.Size(423, 373);
             this.giris.TabIndex = 0;
             this.giris.Text = "Giriş Yap";
             this.giris.UseVisualStyleBackColor = true;
             // 
             // kayit
             // 
+            this.kayit.Controls.Add(this.lastNameTB);
+            this.kayit.Controls.Add(this.label10);
+            this.kayit.Controls.Add(this.firstNameTB);
+            this.kayit.Controls.Add(this.Ad);
             this.kayit.Controls.Add(this.phoneNumMTB);
             this.kayit.Controls.Add(this.label8);
-            this.kayit.Controls.Add(this.EmailTB);
+            this.kayit.Controls.Add(this.EmailTB2);
             this.kayit.Controls.Add(this.label7);
             this.kayit.Controls.Add(this.label6);
             this.kayit.Controls.Add(this.confirmPasswordTB);
             this.kayit.Controls.Add(this.checkBox2);
             this.kayit.Controls.Add(this.kayitBtn);
-            this.kayit.Controls.Add(this.usernameTB2);
             this.kayit.Controls.Add(this.label4);
-            this.kayit.Controls.Add(this.label5);
             this.kayit.Controls.Add(this.passwordTB2);
             this.kayit.Location = new System.Drawing.Point(4, 22);
             this.kayit.Name = "kayit";
             this.kayit.Padding = new System.Windows.Forms.Padding(3);
-            this.kayit.Size = new System.Drawing.Size(423, 311);
+            this.kayit.Size = new System.Drawing.Size(423, 373);
             this.kayit.TabIndex = 1;
             this.kayit.Text = "Kayıt Ol";
             this.kayit.UseVisualStyleBackColor = true;
@@ -195,13 +199,13 @@
             this.label8.Text = "Telefon \r\nNumarası";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // EmailTB
+            // EmailTB2
             // 
-            this.EmailTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.EmailTB.Location = new System.Drawing.Point(131, 53);
-            this.EmailTB.Name = "EmailTB";
-            this.EmailTB.Size = new System.Drawing.Size(210, 30);
-            this.EmailTB.TabIndex = 20;
+            this.EmailTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.EmailTB2.Location = new System.Drawing.Point(131, 53);
+            this.EmailTB2.Name = "EmailTB2";
+            this.EmailTB2.Size = new System.Drawing.Size(210, 30);
+            this.EmailTB2.TabIndex = 20;
             // 
             // label7
             // 
@@ -218,7 +222,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(11, 189);
+            this.label6.Location = new System.Drawing.Point(11, 263);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 25);
             this.label6.TabIndex = 17;
@@ -228,7 +232,7 @@
             // confirmPasswordTB
             // 
             this.confirmPasswordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.confirmPasswordTB.Location = new System.Drawing.Point(131, 186);
+            this.confirmPasswordTB.Location = new System.Drawing.Point(131, 260);
             this.confirmPasswordTB.Name = "confirmPasswordTB";
             this.confirmPasswordTB.Size = new System.Drawing.Size(210, 30);
             this.confirmPasswordTB.TabIndex = 18;
@@ -236,7 +240,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(347, 175);
+            this.checkBox2.Location = new System.Drawing.Point(347, 249);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(57, 17);
             this.checkBox2.TabIndex = 15;
@@ -247,7 +251,7 @@
             // kayitBtn
             // 
             this.kayitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kayitBtn.Location = new System.Drawing.Point(120, 236);
+            this.kayitBtn.Location = new System.Drawing.Point(106, 296);
             this.kayitBtn.Name = "kayitBtn";
             this.kayitBtn.Size = new System.Drawing.Size(173, 56);
             this.kayitBtn.TabIndex = 16;
@@ -255,50 +259,69 @@
             this.kayitBtn.UseVisualStyleBackColor = true;
             this.kayitBtn.Click += new System.EventHandler(this.kayitBtn_Click);
             // 
-            // usernameTB2
-            // 
-            this.usernameTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.usernameTB2.Location = new System.Drawing.Point(131, 11);
-            this.usernameTB2.Name = "usernameTB2";
-            this.usernameTB2.Size = new System.Drawing.Size(210, 30);
-            this.usernameTB2.TabIndex = 13;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(73, 152);
+            this.label4.Location = new System.Drawing.Point(73, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "Şifre";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(6, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 25);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Kullanıcı Adı";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // passwordTB2
             // 
             this.passwordTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.passwordTB2.Location = new System.Drawing.Point(131, 150);
+            this.passwordTB2.Location = new System.Drawing.Point(131, 224);
             this.passwordTB2.Name = "passwordTB2";
             this.passwordTB2.Size = new System.Drawing.Size(210, 30);
             this.passwordTB2.TabIndex = 14;
+            // 
+            // firstNameTB
+            // 
+            this.firstNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.firstNameTB.Location = new System.Drawing.Point(131, 152);
+            this.firstNameTB.Name = "firstNameTB";
+            this.firstNameTB.Size = new System.Drawing.Size(210, 30);
+            this.firstNameTB.TabIndex = 24;
+            // 
+            // Ad
+            // 
+            this.Ad.AutoSize = true;
+            this.Ad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Ad.Location = new System.Drawing.Point(73, 155);
+            this.Ad.Name = "Ad";
+            this.Ad.Size = new System.Drawing.Size(47, 25);
+            this.Ad.TabIndex = 23;
+            this.Ad.Text = "İsim";
+            this.Ad.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lastNameTB
+            // 
+            this.lastNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lastNameTB.Location = new System.Drawing.Point(131, 188);
+            this.lastNameTB.Name = "lastNameTB";
+            this.lastNameTB.Size = new System.Drawing.Size(210, 30);
+            this.lastNameTB.TabIndex = 26;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(44, 191);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 25);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Soyisim";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // KullaniciGirisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(453, 405);
+            this.ClientSize = new System.Drawing.Size(453, 469);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -321,7 +344,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordTB1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox usernameTB1;
+        private System.Windows.Forms.TextBox emailTB1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabControl tabControl1;
@@ -329,15 +352,17 @@
         private System.Windows.Forms.TabPage kayit;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button kayitBtn;
-        private System.Windows.Forms.TextBox usernameTB2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox passwordTB2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox confirmPasswordTB;
         private System.Windows.Forms.MaskedTextBox phoneNumMTB;
-        private System.Windows.Forms.TextBox EmailTB;
+        private System.Windows.Forms.TextBox EmailTB2;
+        private System.Windows.Forms.TextBox lastNameTB;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox firstNameTB;
+        private System.Windows.Forms.Label Ad;
     }
 }
