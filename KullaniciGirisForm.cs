@@ -230,20 +230,27 @@ namespace TeknikServisOtomasyonuProje
 
             try
             {
+                int currentUserId = -1;
+
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM Users WHERE Email=@Email AND PasswordHash=@Password";
+                cmd.CommandText = @"SELECT UserId 
+                    FROM Users 
+                    WHERE Email = @Email AND PasswordHash = @Password";
 
+                cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password); 
+                cmd.Parameters.AddWithValue("@Password", password);
 
                 reader = cmd.ExecuteReader();
 
-                if (reader.HasRows)
+                if (reader.Read()) // HasRows + Read yerine direkt Read
                 {
-                    // Giriş başarılı
-                    MessageBox.Show("Giriş başarılı!");
-                    // burda form açılacak
+                    currentUserId = reader.GetInt32(0); // 0 = UserId kolon indexi
+
+                    //MessageBox.Show("Giriş başarılı!");
+                    this.Hide();
+                    new KullanıcıArayuzForm(currentUserId).Show();
                 }
                 else
                 {

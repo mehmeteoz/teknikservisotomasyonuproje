@@ -37,3 +37,4 @@ C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServi
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.pdb
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.KullanıcıArayuzForm.resources

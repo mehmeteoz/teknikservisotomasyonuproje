@@ -16,7 +16,12 @@ namespace TeknikServisOtomasyonuProje
         {
             con = new SqlConnection(connectionString);
             return con;
-        }    
+        }
+
+        
+
     }
+
+
 }
 
