@@ -38,3 +38,17 @@ C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServi
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.pdb
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.KullanıcıArayuzForm.resources
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\bin\Debug\TeknikServisOtomasyonuProje.exe.config
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\bin\Debug\TeknikServisOtomasyonuProje.exe
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\bin\Debug\TeknikServisOtomasyonuProje.pdb
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.AssemblyReference.cache
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe.config
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.Form1.resources
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.GirisForm.resources
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.KullaniciGirisForm.resources
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.KullanıcıArayuzForm.resources
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.Properties.Resources.resources
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.GenerateResource.cache
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.CoreCompileInputs.cache
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe
+C:\Users\Sadi Arın\Desktop\C# Teknik S3rvis Otomasyon\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.pdb

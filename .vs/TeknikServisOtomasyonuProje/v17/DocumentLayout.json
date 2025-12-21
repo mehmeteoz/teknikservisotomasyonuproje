@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\",
+  "WorkspaceRootPath": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\sadi ar\u0131n\\desktop\\c# teknik s3rvis otomasyon\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,48 +34,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e78e0cf7-2e4e-48a7-bf7f-a94d9330a3be}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "KullaniciGirisForm.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
+              "DocumentMoniker": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
               "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
+              "ToolTip": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
               "RelativeToolTip": "KullaniciGirisForm.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAAAPsAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswPsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T14:55:54.935Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KullaniciGirisForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
+              "DocumentIndex": 0,
+              "Title": "KullaniciGirisForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
               "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs [Design]",
-              "RelativeToolTip": "KullaniciGirisForm.cs [Design]",
+              "ToolTip": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "KullaniciGirisForm.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T14:55:52.941Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Tasar\u0131m]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Fonksiyonlar.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
+              "DocumentMoniker": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
               "RelativeDocumentMoniker": "Fonksiyonlar.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
+              "ToolTip": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
               "RelativeToolTip": "Fonksiyonlar.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAAACQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -84,11 +76,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\User.cs",
+              "DocumentMoniker": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\User.cs",
               "RelativeDocumentMoniker": "User.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\User.cs",
+              "ToolTip": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\User.cs",
               "RelativeToolTip": "User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -97,11 +89,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Kullan\u0131c\u0131ArayuzForm.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
+              "DocumentMoniker": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
               "RelativeDocumentMoniker": "Kullan\u0131c\u0131ArayuzForm.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
+              "ToolTip": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
               "RelativeToolTip": "Kullan\u0131c\u0131ArayuzForm.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAADgvycAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -110,15 +102,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Kullan\u0131c\u0131ArayuzForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
+              "DocumentIndex": 2,
+              "Title": "Kullan\u0131c\u0131ArayuzForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
               "RelativeDocumentMoniker": "Kullan\u0131c\u0131ArayuzForm.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs [Design]",
-              "RelativeToolTip": "Kullan\u0131c\u0131ArayuzForm.cs [Design]",
+              "ToolTip": "C:\\Users\\Sadi Ar\u0131n\\Desktop\\C# Teknik S3rvis Otomasyon\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Kullan\u0131c\u0131ArayuzForm.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T14:03:02.763Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Tasar\u0131m]"
             }
           ]
         }
