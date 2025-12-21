@@ -43,13 +43,13 @@ CREATE TABLE ServiceRecords (
     SerialNumber NVARCHAR(50),
     ProblemDescription NVARCHAR(MAX),
     Status NVARCHAR(50) NOT NULL CHECK (Status IN (
-        'Talep Alýndý',
-        'Personele Atandý',
-        'Ýþlemde',
-        'Tamamlandý',
-        'Teslime Hazýr',
+        'Talep AlÄ±ndÄ±',
+        'Personele AtandÄ±',
+        'Ä°ÅŸlemde',
+        'TamamlandÄ±',
+        'Teslime HazÄ±r',
         'Teslim Edildi',
-        'Ýptal Edildi'
+        'Ä°ptal Edildi'
     )),
     CreatedAt DATETIME DEFAULT(GETDATE()),
     ClosedAt DATETIME NULL,
@@ -83,7 +83,7 @@ CREATE TABLE ServiceComments (
 -- Users
 INSERT INTO Users (Role, Email, PasswordHash, FirstName, LastName, Phone)
 VALUES 
- ('Customer', 'ilk@test.com', '123456789', 'Ahmet', 'Yýlmaz', '5551234567');
+ ('Customer', 'ilk@test.com', '123456789', 'Ahmet', 'YÄ±lmaz', '5551234567');
 
 
 GO
