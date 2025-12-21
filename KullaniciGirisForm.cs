@@ -24,6 +24,7 @@ namespace TeknikServisOtomasyonuProje
         public KullaniciGirisForm()
         {
             InitializeComponent();
+            WindowDragHelper.EnableDrag(label1, this);
             passwordTB1.UseSystemPasswordChar = true;
             con = sqlConnect.connectToSQL();
             passwordTB2.UseSystemPasswordChar = true;
@@ -270,6 +271,17 @@ namespace TeknikServisOtomasyonuProje
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KullaniciGirisForm_Load(object sender, EventArgs e)
+        {
+            tabControl1.Appearance = TabAppearance.Normal;
+            tabControl1.Padding = new Point(0, 0);
         }
     }
 }

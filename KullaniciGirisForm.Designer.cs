@@ -70,6 +70,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Kullanıcı Giriş";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -394,6 +395,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KullaniciGirisForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KullaniciGirisForm_FormClosed);
+            this.Load += new System.EventHandler(this.KullaniciGirisForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.giris.ResumeLayout(false);
             this.giris.PerformLayout();

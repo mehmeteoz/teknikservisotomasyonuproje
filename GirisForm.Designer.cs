@@ -42,7 +42,7 @@
             this.KullaniciGirisBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.KullaniciGirisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.KullaniciGirisBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KullaniciGirisBtn.Location = new System.Drawing.Point(170, 275);
+            this.KullaniciGirisBtn.Location = new System.Drawing.Point(27, 173);
             this.KullaniciGirisBtn.Name = "KullaniciGirisBtn";
             this.KullaniciGirisBtn.Size = new System.Drawing.Size(253, 152);
             this.KullaniciGirisBtn.TabIndex = 0;
@@ -58,10 +58,12 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1280, 95);
+            this.label1.Size = new System.Drawing.Size(748, 95);
             this.label1.TabIndex = 1;
             this.label1.Text = "Teknik Servis";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // YetkiliGirisBtn
             // 
@@ -71,7 +73,7 @@
             this.YetkiliGirisBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.YetkiliGirisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.YetkiliGirisBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.YetkiliGirisBtn.Location = new System.Drawing.Point(883, 275);
+            this.YetkiliGirisBtn.Location = new System.Drawing.Point(445, 173);
             this.YetkiliGirisBtn.Name = "YetkiliGirisBtn";
             this.YetkiliGirisBtn.Size = new System.Drawing.Size(253, 152);
             this.YetkiliGirisBtn.TabIndex = 2;
@@ -85,7 +87,7 @@
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.exit;
-            this.exit.Location = new System.Drawing.Point(1204, 12);
+            this.exit.Location = new System.Drawing.Point(671, 12);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(64, 64);
             this.exit.TabIndex = 3;
@@ -97,7 +99,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(748, 466);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.YetkiliGirisBtn);
             this.Controls.Add(this.label1);
@@ -108,6 +110,7 @@
             this.Name = "GirisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GirisForm";
+            this.Load += new System.EventHandler(this.GirisForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

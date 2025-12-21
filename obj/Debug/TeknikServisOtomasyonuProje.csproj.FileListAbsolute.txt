@@ -24,3 +24,16 @@ C:\Users\merts\OneDrive\Belgeler\GitHub\teknikservisotomasyonuproje\obj\Debug\Te
 C:\Users\merts\OneDrive\Belgeler\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.CoreCompileInputs.cache
 C:\Users\merts\OneDrive\Belgeler\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe
 C:\Users\merts\OneDrive\Belgeler\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.pdb
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\bin\Debug\TeknikServisOtomasyonuProje.exe.config
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\bin\Debug\TeknikServisOtomasyonuProje.exe
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\bin\Debug\TeknikServisOtomasyonuProje.pdb
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe.config
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.Form1.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.GirisForm.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.KullaniciGirisForm.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.GenerateResource.cache
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.exe
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.pdb

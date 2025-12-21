@@ -24,7 +24,7 @@ GO
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     Role NVARCHAR(20) NOT NULL
-        CHECK (Role IN ('Customer', 'Staff', 'Admin')),
+        CHECK (Role IN ('Customer', 'Staff', 'Admin', 'Accountant')),
     Email NVARCHAR(100) UNIQUE NOT NULL,
     PasswordHash NVARCHAR(255) NOT NULL,
     FirstName NVARCHAR(50) NOT NULL,

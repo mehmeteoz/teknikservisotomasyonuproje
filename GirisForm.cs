@@ -4,17 +4,21 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace TeknikServisOtomasyonuProje
 {
     public partial class GirisForm : Form
     {
+
         public GirisForm()
         {
             InitializeComponent();
+            WindowDragHelper.EnableDrag(label1, this);
         }
 
         private void KullaniciGirisBtn_Click(object sender, EventArgs e)
@@ -35,6 +39,21 @@ namespace TeknikServisOtomasyonuProje
         private void exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void GirisForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
