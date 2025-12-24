@@ -53,6 +53,7 @@ CREATE TABLE ServiceRecords (
     )),
     CreatedAt DATETIME DEFAULT(GETDATE()),
     ClosedAt DATETIME NULL,
+    Picture64 TEXT NOT NULL,
     FOREIGN KEY (CustomerID) REFERENCES Users(UserID),
     FOREIGN KEY (AssignedStaffID) REFERENCES Users(UserID)
 );
@@ -83,7 +84,8 @@ CREATE TABLE ServiceComments (
 -- Users
 INSERT INTO Users (Role, Email, PasswordHash, FirstName, LastName, Phone)
 VALUES 
- ('Customer', 'ilk@test.com', '123456789', 'Ahmet', 'Yılmaz', '5551234567');
+ ('Customer', 'ilk@test.com', '123456789', 'Ahmet', 'Yılmaz', '5551234567'),
+ ('Staff', 'staff@test.com', '123456789', 'Ali Yıldırım', 'Koç', '5551234567');
 
 
 GO

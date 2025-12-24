@@ -277,7 +277,7 @@ namespace TeknikServisOtomasyonuProje
 
         private void exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -289,6 +289,11 @@ namespace TeknikServisOtomasyonuProje
         {
             tabControl1.Appearance = TabAppearance.Normal;
             tabControl1.Padding = new Point(0, 0);
+        }
+
+        private void giris_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullanicigirisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:kullan\u0131c\u0131arayuzform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,78 +34,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KullaniciGirisForm.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
-              "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
-              "RelativeToolTip": "KullaniciGirisForm.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAAAPoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:55:54.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KullaniciGirisForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs",
-              "RelativeDocumentMoniker": "KullaniciGirisForm.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\KullaniciGirisForm.cs [Design]",
-              "RelativeToolTip": "KullaniciGirisForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:55:52.941Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Fonksiyonlar.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
               "RelativeDocumentMoniker": "Fonksiyonlar.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
               "RelativeToolTip": "Fonksiyonlar.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAACQAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAAAKsAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:44:53.166Z",
+              "WhenOpened": "2025-12-24T11:56:52.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\User.cs",
-              "RelativeDocumentMoniker": "User.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\User.cs",
-              "RelativeToolTip": "User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:44:44.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Kullan\u0131c\u0131ArayuzForm.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
               "RelativeDocumentMoniker": "Kullan\u0131c\u0131ArayuzForm.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
               "RelativeToolTip": "Kullan\u0131c\u0131ArayuzForm.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAADgvycAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAADQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:17:00.569Z",
+              "WhenOpened": "2025-12-24T11:32:12.095Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Kullan\u0131c\u0131ArayuzForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs",
               "RelativeDocumentMoniker": "Kullan\u0131c\u0131ArayuzForm.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Kullan\u0131c\u0131ArayuzForm.cs [Design]",
               "RelativeToolTip": "Kullan\u0131c\u0131ArayuzForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:03:02.763Z",
+              "WhenOpened": "2025-12-24T11:32:10.501Z",
               "EditorCaption": " [Design]"
             }
           ]

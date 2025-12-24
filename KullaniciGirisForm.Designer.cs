@@ -68,7 +68,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(454, 50);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Kullanıcı Giriş";
+            this.label1.Text = "Giriş";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -171,6 +171,7 @@
             this.giris.Size = new System.Drawing.Size(422, 367);
             this.giris.TabIndex = 0;
             this.giris.Text = "Giriş Yap";
+            this.giris.Click += new System.EventHandler(this.giris_Click);
             // 
             // kayit
             // 

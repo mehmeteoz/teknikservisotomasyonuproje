@@ -17,13 +17,14 @@ namespace TeknikServisOtomasyonuProje
         List<User> currentUser = new List<User>();
         SQLConnect sqlConnect = new SQLConnect();
         SqlConnection con;
+        Fonksiyonlar fonksiyonlar = new Fonksiyonlar();
         public KullanıcıArayuzForm(int currentUserId)
         {
             InitializeComponent();
             WindowDragHelper.EnableDrag(panel1, this);
             UserId = currentUserId;
             con = sqlConnect.connectToSQL();
-            Fonksiyonlar fonksiyonlar = new Fonksiyonlar();
+            
             currentUser = fonksiyonlar.GetUserInfo(UserId, con);
         }
 
@@ -40,7 +41,7 @@ namespace TeknikServisOtomasyonuProje
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();
-            new GirisForm().Show();
+            new KullaniciGirisForm().Show();
         }
 
         private void KullanıcıArayuzForm_Load(object sender, EventArgs e)
@@ -48,6 +49,9 @@ namespace TeknikServisOtomasyonuProje
             nameLabel.Text = currentUser[0].FirstName + " " + currentUser[0].LastName;
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fonksiyonlar.formGetir(new TalepOlustur(UserId, con), panel3);
+        }
     }
 }

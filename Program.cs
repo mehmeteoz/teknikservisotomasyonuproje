@@ -16,7 +16,7 @@ namespace TeknikServisOtomasyonuProje
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GirisForm());
+            Application.Run(new KullaniciGirisForm());
         }
     }
 }
