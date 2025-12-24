@@ -39,3 +39,4 @@ C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServi
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.pdb
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.KullanıcıArayuzForm.resources
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.TalepOlustur.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.Taleplerim.resources

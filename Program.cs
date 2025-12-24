@@ -16,7 +16,9 @@ namespace TeknikServisOtomasyonuProje
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KullaniciGirisForm());
+            // debug için kullanıcı userıd 1 olan kullanıcıyla giriş yap
+            Application.Run(new KullanıcıArayuzForm(1));
+            //Application.Run(new KullaniciGirisForm()); build de
         }
     }
 }

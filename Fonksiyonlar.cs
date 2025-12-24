@@ -62,7 +62,7 @@ namespace TeknikServisOtomasyonuProje
                         FirstName = reader["FirstName"].ToString(),
                         LastName = reader["LastName"].ToString(),
                         Phone = reader["Phone"].ToString(),
-                        CreatedAt = reader["CreatedAt"].ToString()
+                        CreatedAt = reader["CreatedAt"].ToString() // burayı düzelt datetime yap
                     };
 
                     users.Add(user);
@@ -106,7 +106,7 @@ namespace TeknikServisOtomasyonuProje
         public void ResimYukle(
             PictureBox pictureBox,
             int maxGenislik = 1920,
-            int maxYukseklik = 1080,
+            int maxYukseklik = 1920,
             long maxDosyaBoyutuBayt = 4_000_000
             )
         {
@@ -170,6 +170,181 @@ namespace TeknikServisOtomasyonuProje
 
             panel.Controls.Add(frm);
             frm.Show();
+        }
+
+        public List<UserServices> GetUserServices(int userId, SqlConnection sqlConnection)
+        {
+            List<UserServices> services = new List<UserServices>();
+
+            string query = @"
+        SELECT *
+        FROM ServiceRecords
+        WHERE CustomerID = @CustomerID
+        ORDER BY CreatedAt DESC";
+
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            cmd.Parameters.AddWithValue("@CustomerID", userId);
+
+            SqlDataReader reader = null;
+
+            try
+            {
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    UserServices service = new UserServices();
+
+                    service.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+                    service.CustomerID = Convert.ToInt32(reader["CustomerID"]);
+
+                    service.AssignedStaffID = reader["AssignedStaffID"] == DBNull.Value
+                        ? (int?)null
+                        : Convert.ToInt32(reader["AssignedStaffID"]);
+
+                    service.DeviceType = reader["DeviceType"].ToString();
+                    service.Brand = reader["Brand"].ToString();
+                    service.Model = reader["Model"].ToString();
+                    service.SerialNumber = reader["SerialNumber"].ToString();
+                    service.ProblemDescription = reader["ProblemDescription"].ToString();
+                    service.Status = reader["Status"].ToString();
+                    service.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
+
+                    service.ClosedAt = reader["ClosedAt"] == DBNull.Value
+                        ? (DateTime?)null
+                        : Convert.ToDateTime(reader["ClosedAt"]);
+
+                    service.Picture64 = reader["Picture64"]?.ToString();
+
+                    services.Add(service);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+
+                cmd.Dispose();
+            }
+
+            return services;
+        }
+
+
+
+
+        public Panel CreateServiceCard(UserServices service)
+        {
+            // === PANEL (KART) ===
+            Panel panel = new Panel();
+            panel.Width = 220;
+            panel.Height = 300;
+            panel.Margin = new Padding(10);
+            panel.BackColor = Color.FromArgb(64, 64, 64);
+            panel.BorderStyle = BorderStyle.FixedSingle;
+
+            // Hover efekti 
+            //panel.MouseEnter += (s, e) => panel.BackColor = Color.Gainsboro;
+            //panel.MouseLeave += (s, e) => panel.BackColor = Color.White;
+
+            // === BAŞLIK (CİHAZ TÜRÜ) ===
+            Label lblTitle = new Label();
+            lblTitle.Text = service.DeviceType;
+            lblTitle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblTitle.Height = 28;
+            lblTitle.Dock = DockStyle.Top;
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitle.ForeColor = Color.White;
+
+            // === FOTOĞRAF (BASE64) ===
+            PictureBox pic = new PictureBox();
+            pic.Height = 140;
+            pic.Dock = DockStyle.Top;
+            pic.SizeMode = PictureBoxSizeMode.Zoom;
+
+            if (!string.IsNullOrEmpty(service.Picture64))
+            {
+                try
+                {
+                    byte[] bytes = Convert.FromBase64String(service.Picture64);
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        pic.Image = Image.FromStream(ms);
+                    }
+                }
+                catch
+                {
+                    // Base64 hatalıysa boş bırak
+                }
+            }
+
+            // === MARKA ===
+            Label lblBrand = new Label();
+            lblBrand.Text = "Marka: " + service.Brand;
+            lblBrand.Dock = DockStyle.Top;
+            lblBrand.Padding = new Padding(5);
+            lblBrand.ForeColor = Color.White;
+
+            // === MODEL ===
+            Label lblModel = new Label();
+            lblModel.Text = "Model: " + service.Model;
+            lblModel.Dock = DockStyle.Top;
+            lblModel.Padding = new Padding(5);
+            lblModel.ForeColor = Color.White;
+
+
+            // === DURUM ===
+            Label lblStatus = new Label();
+            lblStatus.Text = "Durum: " + service.Status;
+            lblStatus.Dock = DockStyle.Top;
+            lblStatus.Padding = new Padding(5);
+            lblStatus.ForeColor = Color.White;
+
+            if (service.Status == "Tamamlandı")
+                lblStatus.ForeColor = Color.Green;
+            else
+                lblStatus.ForeColor = Color.White;
+
+            // === DETAY BUTTON ===
+            Button lblDetail = new Button();
+            lblDetail.Text = "Detayları Görüntüle";
+            lblDetail.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblDetail.Height = 60;
+            lblDetail.ForeColor = Color.White;
+            lblDetail.Dock = DockStyle.Bottom;
+            lblDetail.BackColor = Color.FromArgb(64, 64, 64);
+            lblDetail.FlatStyle = FlatStyle.Popup;
+            lblDetail.Margin = new Padding(20);
+
+
+            // === CONTROLLERİ EKLE (TERSTEN) ===
+            panel.Controls.Add(lblStatus);
+            panel.Controls.Add(lblModel);
+            panel.Controls.Add(lblBrand);
+            panel.Controls.Add(pic);
+            panel.Controls.Add(lblTitle);
+            panel.Controls.Add(lblDetail);
+
+            // === TÜM KARTA TIKLAMA ===
+            AddClickRecursive(panel, service.ServiceID);
+
+            return panel;
+        }
+
+
+        public void AddClickRecursive(Control control, int id)
+        {
+            control.Click += (s, e) => OpenDetail(id);
+
+            foreach (Control child in control.Controls)
+            {
+                AddClickRecursive(child, id);
+            }
+        }
+
+        public void OpenDetail(int serviceId)
+        {
+            // Detay formunu açma işlemi burada yapılacak
         }
 
 

@@ -53,5 +53,10 @@ namespace TeknikServisOtomasyonuProje
         {
             fonksiyonlar.formGetir(new TalepOlustur(UserId, con), panel3);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fonksiyonlar.formGetir(new Taleplerim(UserId, con), panel3);
+        }
     }
 }

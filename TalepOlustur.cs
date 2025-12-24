@@ -67,8 +67,8 @@ namespace TeknikServisOtomasyonuProje
             {
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = @"INSERT INTO ServiceRecords (CustomerId, DeviceType, Brand, Model, SerialNumber, ProblemDescription, Status) 
-                            VALUES (@CustomerID, @DeviceType , @Brand , @Model , @SerialNumber , @ProblemDescription, @Status)";
+                cmd.CommandText = @"INSERT INTO ServiceRecords (CustomerId, DeviceType, Brand, Model, SerialNumber, ProblemDescription, Status, Picture64) 
+                            VALUES (@CustomerID, @DeviceType , @Brand , @Model , @SerialNumber , @ProblemDescription, @Status, @Picture64)";
 
                 //cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@CustomerID", currentUserID);
@@ -78,6 +78,7 @@ namespace TeknikServisOtomasyonuProje
                 cmd.Parameters.AddWithValue("@SerialNumber", seriNo);
                 cmd.Parameters.AddWithValue("@ProblemDescription", desc);
                 cmd.Parameters.AddWithValue("@Status", "Talep Alındı");
+                cmd.Parameters.AddWithValue("@Picture64", imageBase64);
 
 
                 cmd.ExecuteNonQuery();
