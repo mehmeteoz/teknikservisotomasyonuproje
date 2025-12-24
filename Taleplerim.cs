@@ -16,10 +16,13 @@ namespace TeknikServisOtomasyonuProje
         int CurrentUserID;
         SqlConnection con;
         Fonksiyonlar fonksiyonlar = new Fonksiyonlar();
+        SQLConnect connect = new SQLConnect();
+
+
         public Taleplerim(int UserID, SqlConnection conn)
         {
             InitializeComponent();
-            con = conn;
+            con = connect.connectToSQL();
             CurrentUserID = UserID;
         }
 
@@ -30,12 +33,45 @@ namespace TeknikServisOtomasyonuProje
 
         private void Taleplerim_Load(object sender, EventArgs e)
         {
+            // Configure panel once
             requestsFLPanel.Dock = DockStyle.Fill;
             requestsFLPanel.AutoScroll = true;
             requestsFLPanel.WrapContents = true;
             requestsFLPanel.FlowDirection = FlowDirection.LeftToRight;
             requestsFLPanel.Padding = new Padding(10, 10, 10, 50);
 
+            // Populate services
+            PopulateServices();
+        }
+
+        private void PopulateServices()
+        {
+            // Clear existing controls
+            requestsFLPanel.Controls.Clear();
+
+            // Header
+            Panel headerPanel = new Panel
+            {
+                Height = 60,
+                Width = requestsFLPanel.ClientSize.Width - 25, // scrollbar payı
+                BackColor = Color.FromArgb(40, 40, 40),
+                Margin = new Padding(5, 5, 5, 15)
+            };
+
+            Label taleplerimLabel = new Label
+            {
+                Text = "Taleplerim",
+                Font = new Font("Arial", 20, FontStyle.Bold),
+                ForeColor = Color.White,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Padding = new Padding(10, 0, 0, 0),
+                BackColor = Color.FromArgb(17, 17, 17),
+            };
+
+            headerPanel.Controls.Add(taleplerimLabel);
+            requestsFLPanel.Controls.Add(headerPanel);
+            requestsFLPanel.SetFlowBreak(headerPanel, true); // tek satır kaplasın
 
             try
             {
@@ -61,7 +97,20 @@ namespace TeknikServisOtomasyonuProje
 
                 foreach (UserServices service in services)
                 {
-                    Panel card = fonksiyonlar.CreateServiceCard(service);
+                    // create a single Detaylar instance per service so we can listen for its close event
+                    Detaylar detay = new Detaylar(service.ServiceID, CurrentUserID);
+
+                    // when details form closes, refresh the list (e.g., after a delete)
+                    detay.FormClosed += (s, e) =>
+                    {
+                        // Ensure refresh runs on UI thread
+                        if (this.IsHandleCreated && !this.IsDisposed)
+                        {
+                            this.BeginInvoke((Action)(() => PopulateServices()));
+                        }
+                    };
+
+                    Panel card = fonksiyonlar.CreateServiceCard(service, detay);    
                     requestsFLPanel.Controls.Add(card);
                 }
             }
@@ -80,13 +129,14 @@ namespace TeknikServisOtomasyonuProje
                     con.Close();
             }
 
+            headerPanel.Width = requestsFLPanel.ClientSize.Width - 25;  // scrollbar payı
+
             Panel spacer = new Panel();
             spacer.Height = 20;
-            spacer.Width = requestsFLPanel.ClientSize.Width; // 🔴 KRİTİK
+            spacer.Width = requestsFLPanel.ClientSize.Width;
             spacer.Margin = new Padding(0);
 
             requestsFLPanel.Controls.Add(spacer);
-
         }
 
 

@@ -44,11 +44,14 @@ CREATE TABLE ServiceRecords (
     ProblemDescription NVARCHAR(MAX),
     Status NVARCHAR(50) NOT NULL CHECK (Status IN (
         'Talep Alındı',
-        'Personele Atandı',
+        'Müştericiden Cihaz Bekleniyor',
+        'Cihaz Kontrol Ediliyor',
+        'Ücret Hesaplanıyor',
         'İşlemde',
         'Tamamlandı',
         'Teslime Hazır',
         'Teslim Edildi',
+        'Raporlandı',
         'İptal Edildi'
     )),
     CreatedAt DATETIME DEFAULT(GETDATE()),

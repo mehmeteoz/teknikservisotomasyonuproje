@@ -21,7 +21,7 @@ namespace TeknikServisOtomasyonuProje
         public KullanıcıArayuzForm(int currentUserId)
         {
             InitializeComponent();
-            WindowDragHelper.EnableDrag(panel1, this);
+            WindowDragHelper.EnableDrag(panel1, this, formTitle);
             UserId = currentUserId;
             con = sqlConnect.connectToSQL();
             
@@ -57,6 +57,11 @@ namespace TeknikServisOtomasyonuProje
         private void button2_Click(object sender, EventArgs e)
         {
             fonksiyonlar.formGetir(new Taleplerim(UserId, con), panel3);
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

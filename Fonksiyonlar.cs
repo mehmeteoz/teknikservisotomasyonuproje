@@ -189,6 +189,7 @@ namespace TeknikServisOtomasyonuProje
 
             try
             {
+
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -230,10 +231,70 @@ namespace TeknikServisOtomasyonuProje
             return services;
         }
 
+        public List<UserServices> GetServiceById(int serviceId ,SqlConnection sqlConnection)
+        {
+            List<UserServices> services = new List<UserServices>();
+
+            string query = @"
+        SELECT *
+        FROM ServiceRecords
+        WHERE ServiceID = @ServiceID";
+
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            cmd.Parameters.AddWithValue("@ServiceID", serviceId);
+
+            SqlDataReader reader = null;
+
+            try
+            {
+                sqlConnection.Open();
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    UserServices service = new UserServices();
+
+                    service.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+                    service.CustomerID = Convert.ToInt32(reader["CustomerID"]);
+
+                    service.AssignedStaffID = reader["AssignedStaffID"] == DBNull.Value
+                        ? (int?)null
+                        : Convert.ToInt32(reader["AssignedStaffID"]);
+
+                    service.DeviceType = reader["DeviceType"].ToString();
+                    service.Brand = reader["Brand"].ToString();
+                    service.Model = reader["Model"].ToString();
+                    service.SerialNumber = reader["SerialNumber"].ToString();
+                    service.ProblemDescription = reader["ProblemDescription"].ToString();
+                    service.Status = reader["Status"].ToString();
+                    service.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
+
+                    service.ClosedAt = reader["ClosedAt"] == DBNull.Value
+                        ? (DateTime?)null
+                        : Convert.ToDateTime(reader["ClosedAt"]);
+
+                    service.Picture64 = reader["Picture64"]?.ToString();
+
+                    services.Add(service);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+
+                cmd.Dispose();
+                if (sqlConnection.State == ConnectionState.Open)
+                    sqlConnection.Close();
+            }
+
+            return services;
+        }
 
 
 
-        public Panel CreateServiceCard(UserServices service)
+        public Panel CreateServiceCard(UserServices service, Form formToOpen)
         {
             // === PANEL (KART) ===
             Panel panel = new Panel();
@@ -315,6 +376,18 @@ namespace TeknikServisOtomasyonuProje
             lblDetail.BackColor = Color.FromArgb(64, 64, 64);
             lblDetail.FlatStyle = FlatStyle.Popup;
             lblDetail.Margin = new Padding(20);
+            lblDetail.Click += (s, e) =>
+            {
+                try
+                {
+                    formToOpen.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("Detaylar açılamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                    
+            };
 
 
             // === CONTROLLERİ EKLE (TERSTEN) ===
@@ -326,7 +399,7 @@ namespace TeknikServisOtomasyonuProje
             panel.Controls.Add(lblDetail);
 
             // === TÜM KARTA TIKLAMA ===
-            AddClickRecursive(panel, service.ServiceID);
+            //AddClickRecursive(panel, service.ServiceID);
 
             return panel;
         }
@@ -347,6 +420,90 @@ namespace TeknikServisOtomasyonuProje
             // Detay formunu açma işlemi burada yapılacak
         }
 
+        public string GetUserRole(int userId, SqlConnection con)
+        {
+            string role = string.Empty;
+            try
+            {
+                con.Open();
+                string query = "SELECT Role FROM Users WHERE UserID = @UserID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    role = result.ToString();
+                }
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+            return role;
+        }
+
+        public bool DeleteServiceRecord(int serviceId, SqlConnection con)
+        {
+            bool success = false;
+            try
+            {
+                con.Open();
+                string query = "DELETE FROM ServiceRecords WHERE ServiceID = @ServiceID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ServiceID", serviceId);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                success = rowsAffected > 0;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+            return success;
+        }
+
+        public void ResimKaydet(Image image, string imageName = "Resim")
+        {
+            if (image == null)
+            {
+                MessageBox.Show("Kaydedilecek resim yok.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Title = "Resim Kaydet";
+                sfd.Filter = "PNG Görsel (*.png)|*.png|JPEG Görsel (*.jpg;*.jpeg)|*.jpg;*.jpeg"; // |Bitmap (*.bmp)|*.bmp
+                sfd.DefaultExt = "jpg";
+                sfd.AddExtension = true;
+                sfd.FileName = imageName;
+
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                ImageFormat format = ImageFormat.Png;
+                string ext = Path.GetExtension(sfd.FileName)?.ToLowerInvariant();
+
+                if (ext == ".jpg" || ext == ".jpeg")
+                    format = ImageFormat.Jpeg;
+                //else if (ext == ".bmp")
+                    //format = ImageFormat.Bmp;
+
+                try
+                {
+                    // Image.Save will overwrite if the file exists
+                    image.Save(sfd.FileName, format);
+                    MessageBox.Show("Resim başarıyla kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Resim kaydedilemedi: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
     }
+
+    
 }

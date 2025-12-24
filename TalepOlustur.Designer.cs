@@ -118,9 +118,9 @@
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label4.Location = new System.Drawing.Point(122, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(226, 39);
+            this.label4.Size = new System.Drawing.Size(221, 39);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Cihaz Bilgileri";
+            this.label4.Text = "Talep Oluştur";
             // 
             // modelTBx
             // 
@@ -162,7 +162,7 @@
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(237, 53);
             this.submitBtn.TabIndex = 10;
-            this.submitBtn.Text = "Talep Et";
+            this.submitBtn.Text = "Talep Oluştur";
             this.submitBtn.UseVisualStyleBackColor = false;
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 

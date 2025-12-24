@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detaylar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detaylar.Designer.cs">
+      <DependentUpon>Detaylar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fonksiyonlar.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -89,6 +95,9 @@
     <Compile Include="User.cs" />
     <Compile Include="UserServices.cs" />
     <Compile Include="WindowDragHelper.cs" />
+    <EmbeddedResource Include="Detaylar.resx">
+      <DependentUpon>Detaylar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

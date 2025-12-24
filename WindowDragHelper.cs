@@ -19,7 +19,7 @@ namespace TeknikServisOtomasyonuProje
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
-        public static void EnableDrag(Control dragControl, Form targetForm)
+        public static void EnableDrag(Control dragControl, Form targetForm, Control dragControl2 = null)
         {
             dragControl.MouseDown += (s, e) =>
             {
@@ -29,6 +29,17 @@ namespace TeknikServisOtomasyonuProje
                     SendMessage(targetForm.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
                 }
             };
+            if (dragControl2 != null)
+            {
+                dragControl2.MouseDown += (s, e) =>
+                {
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        ReleaseCapture();
+                        SendMessage(targetForm.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+                    }
+                };
+            }
         }
     }
 }

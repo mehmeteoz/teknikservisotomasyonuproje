@@ -44,6 +44,17 @@ namespace TeknikServisOtomasyonuProje
             fonksiyonlar.ResimYukle(pictureBox1);
         }
 
+        void temizle()
+        {
+            modelTBx.Text = string.Empty;
+            descTBx.Text = "Probleminizi Açıklayınız";
+            isTextEmpitied = false;
+            pictureBox1.Image = null;
+            cihazTipCBx.SelectedIndex = -1;
+            markaCBx.SelectedIndex = -1;
+            seriNoTBx.Text = string.Empty;
+        }
+
         private void submitBtn_Click(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(modelTBx.Text) || string.IsNullOrEmpty(descTBx.Text) || 
@@ -93,6 +104,8 @@ namespace TeknikServisOtomasyonuProje
                 // Bağlantıyı kapat
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
+                
+                temizle();            
             }
 
         }
