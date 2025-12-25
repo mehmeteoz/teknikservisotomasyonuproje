@@ -56,10 +56,15 @@ namespace TeknikServisOtomasyonuProje
 
         private void button2_Click(object sender, EventArgs e)
         {
-            fonksiyonlar.formGetir(new Taleplerim(UserId, con), panel3);
+            fonksiyonlar.formGetir(new Taleplerim(UserId), panel3);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void formTitle_Click(object sender, EventArgs e)
         {
 
         }

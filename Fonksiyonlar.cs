@@ -172,6 +172,150 @@ namespace TeknikServisOtomasyonuProje
             frm.Show();
         }
 
+        public List<UserServices> GetTechniciansServices(int technicianID,SqlConnection sqlConnection)
+        {
+            List<UserServices> services = new List<UserServices>();
+            string query = @"
+                SELECT * 
+                FROM ServiceRecords 
+                WHERE AssignedStaffID = @AssignedStaffID
+                AND Status = 'Müşteriden Cihaz Bekleniyor'
+                OR Status = 'Cihaz Kontrol Ediliyor'
+                OR Status = 'İşlemde'
+                ORDER BY CreatedAt DESC";
+
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            cmd.Parameters.AddWithValue("@AssignedStaffID", technicianID); // veya başka bir şekilde teknisyen ID'si alınabilir
+
+            SqlDataReader reader = null;
+
+
+            try
+            {
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    UserServices service = new UserServices();
+
+                    service.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+                    service.CustomerID = Convert.ToInt32(reader["CustomerID"]);
+
+                    service.AssignedStaffID = reader["AssignedStaffID"] == DBNull.Value
+                        ? (int?)null
+                        : Convert.ToInt32(reader["AssignedStaffID"]);
+
+                    service.DeviceType = reader["DeviceType"].ToString();
+                    service.Brand = reader["Brand"].ToString();
+                    service.Model = reader["Model"].ToString();
+                    service.SerialNumber = reader["SerialNumber"].ToString();
+                    service.ProblemDescription = reader["ProblemDescription"].ToString();
+                    service.Status = reader["Status"].ToString();
+                    service.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
+
+                    service.ClosedAt = reader["ClosedAt"] == DBNull.Value
+                        ? (DateTime?)null
+                        : Convert.ToDateTime(reader["ClosedAt"]);
+
+                    service.Picture64 = reader["Picture64"]?.ToString();
+
+                    services.Add(service);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+
+                cmd.Dispose();
+            }
+
+            return services;
+        }
+
+        public List<UserServices> GetGotServices(SqlConnection sqlConnection, string userRole = "Staff")
+        {
+            List<UserServices> services = new List<UserServices>();
+            string query = string.Empty;
+            if (userRole == "Staff") { 
+                query = @"
+                    SELECT * 
+                    FROM ServiceRecords 
+                    WHERE Status = 'Talep Alındı' 
+                    ORDER BY CreatedAt DESC";
+            }
+            else if (userRole == "Accountant")
+            {
+                query = @"
+                    SELECT * 
+                    FROM ServiceRecords 
+                    WHERE Status = 'Ücret Hesaplanıyor' 
+                    ORDER BY CreatedAt DESC";
+            }
+            else if (userRole == "Admin")
+            {
+                query = @"
+                    SELECT * 
+                    FROM ServiceRecords 
+                    WHERE Status = 'Raporlandı' 
+                    ORDER BY CreatedAt DESC";
+            }
+
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            
+            SqlDataReader reader = null;
+
+
+            try
+            {
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    UserServices service = new UserServices();
+
+                    service.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+                    service.CustomerID = Convert.ToInt32(reader["CustomerID"]);
+
+                    service.AssignedStaffID = reader["AssignedStaffID"] == DBNull.Value
+                        ? (int?)null
+                        : Convert.ToInt32(reader["AssignedStaffID"]);
+
+                    service.DeviceType = reader["DeviceType"].ToString();
+                    service.Brand = reader["Brand"].ToString();
+                    service.Model = reader["Model"].ToString();
+                    service.SerialNumber = reader["SerialNumber"].ToString();
+                    service.ProblemDescription = reader["ProblemDescription"].ToString();
+                    service.Status = reader["Status"].ToString();
+                    service.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
+
+                    service.ClosedAt = reader["ClosedAt"] == DBNull.Value
+                        ? (DateTime?)null
+                        : Convert.ToDateTime(reader["ClosedAt"]);
+
+                    service.Picture64 = reader["Picture64"]?.ToString();
+
+                    services.Add(service);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+
+                cmd.Dispose();
+            }
+
+            return services;
+        }
+
+
+
+
+
+
         public List<UserServices> GetUserServices(int userId, SqlConnection sqlConnection)
         {
             List<UserServices> services = new List<UserServices>();
@@ -230,6 +374,8 @@ namespace TeknikServisOtomasyonuProje
 
             return services;
         }
+
+        
 
         public List<UserServices> GetServiceById(int serviceId ,SqlConnection sqlConnection)
         {
@@ -501,6 +647,128 @@ namespace TeknikServisOtomasyonuProje
                     MessageBox.Show($"Resim kaydedilemedi: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        public bool AccpetRequestByTechnicianID(int ServiceId, int TechnicianId, SqlConnection con)
+        {
+            try
+            {
+                con.Open();
+                string query = "UPDATE ServiceRecords SET AssignedStaffID = @AssignedStaffID, Status = @Status WHERE ServiceID = @ServiceID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@AssignedStaffID", TechnicianId);
+                cmd.Parameters.AddWithValue("@Status", "Müşteriden Cihaz Bekleniyor");
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        public bool AddToServiceOperations(int ServiceId, string Description, SqlConnection con, double Cost = 0)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = @"INSERT INTO ServiceOperations (ServiceID, Description, Cost) 
+                            VALUES (@ServiceID, @Description, @Cost)";
+
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+                cmd.Parameters.AddWithValue("@Description", Description);
+                cmd.Parameters.AddWithValue("@Cost", Cost);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                // Bağlantıyı kapat
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        public bool ChangeServiceStatus(int ServiceId, string NewStatus, SqlConnection con)
+        {
+            try
+            {
+                con.Open();
+                string query = "UPDATE ServiceRecords SET Status = @Status WHERE ServiceID = @ServiceID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Status", NewStatus);
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        public bool MuhasebeyeGonder(int ServiceId, string Description, SqlConnection con)
+        {
+            /*
+            if(!AddToServiceOperations(ServiceId, Description, con))
+                return false;
+            else if(!ChangeServiceStatus(ServiceId, "Ücret Hesaplanıyor", con))
+                return false;
+            else
+                return true;
+            */
+            return AddToServiceOperations(ServiceId, Description, con) && ChangeServiceStatus(ServiceId, "Ücret Hesaplanıyor", con);
+        }
+
+        public bool ChangeServiceOperationDescription(int OperationId, string NewDescription, SqlConnection con)
+        {
+            try
+            {
+                con.Open();
+                string query = "UPDATE ServiceOperations SET Description = @Description WHERE OperationID = @OperationID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Description", NewDescription);
+                cmd.Parameters.AddWithValue("@OperationID", OperationId);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        public bool TeslimeHazirEt(int ServiceId, string Description, SqlConnection con)
+        {
+            return ChangeServiceStatus(ServiceId, "Teslime Hazır", con) && ChangeServiceOperationDescription(ServiceId, Description, con);
         }
 
     }

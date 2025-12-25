@@ -24,7 +24,7 @@ GO
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     Role NVARCHAR(20) NOT NULL
-        CHECK (Role IN ('Customer', 'Staff', 'Admin', 'Accountant')),
+        CHECK (Role IN ('Customer', 'Staff', 'Admin', 'Accountant', 'Warehouse')),
     Email NVARCHAR(100) UNIQUE NOT NULL,
     PasswordHash NVARCHAR(255) NOT NULL,
     FirstName NVARCHAR(50) NOT NULL,
@@ -44,13 +44,13 @@ CREATE TABLE ServiceRecords (
     ProblemDescription NVARCHAR(MAX),
     Status NVARCHAR(50) NOT NULL CHECK (Status IN (
         'Talep Alındı',
-        'Müştericiden Cihaz Bekleniyor',
+        'Müşteriden Cihaz Bekleniyor',
         'Cihaz Kontrol Ediliyor',
         'Ücret Hesaplanıyor',
+        'Ücret Onayı Bekleniyor',
         'İşlemde',
-        'Tamamlandı',
         'Teslime Hazır',
-        'Teslim Edildi',
+        'Tamamlandı',
         'Raporlandı',
         'İptal Edildi'
     )),
@@ -100,3 +100,4 @@ GO
 -- end of file
 
 select * from Users;
+select * from ServiceRecords;

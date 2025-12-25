@@ -40,6 +40,8 @@ namespace TeknikServisOtomasyonuProje
             talepIptalBtn.Enabled = false;
             fotoDownloadBtn.Enabled = false;
             fotoDownloadBtn.Visible = false;
+            commentBtn.Enabled = false; //
+            commentBtn.Visible = false;
             string userRole = fonksiyonlar.GetUserRole(userID, con);
             if (userRole == "Staff")
             {
@@ -102,6 +104,19 @@ namespace TeknikServisOtomasyonuProje
         {
             // picture box taki resmi bilgisayara indirme
             fonksiyonlar.ResimKaydet(pictureBox1.Image, resimIsim);
+        }
+
+        private void acceptBtn_Click(object sender, EventArgs e)
+        {
+            if(!fonksiyonlar.AccpetRequestByTechnicianID(serviceID, userID, con))   return ;
+            MessageBox.Show("Talep başarıyla kabul edildi.");
+        }
+
+        private void statusLbl_MouseHover(object sender, EventArgs e)
+        {
+            // Show tooltip with full status text
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(statusLbl, statusLbl.Text);
         }
     }
 }

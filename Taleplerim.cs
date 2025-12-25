@@ -17,14 +17,17 @@ namespace TeknikServisOtomasyonuProje
         SqlConnection con;
         Fonksiyonlar fonksiyonlar = new Fonksiyonlar();
         SQLConnect connect = new SQLConnect();
+        bool isWorksOn = false;
 
 
-        public Taleplerim(int UserID, SqlConnection conn)
+        public Taleplerim(int UserID, bool isWorksOnPage = false)
         {
             InitializeComponent();
             con = connect.connectToSQL();
             CurrentUserID = UserID;
+            isWorksOn = isWorksOnPage;
         }
+
 
         private void requestsFLPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -40,11 +43,13 @@ namespace TeknikServisOtomasyonuProje
             requestsFLPanel.FlowDirection = FlowDirection.LeftToRight;
             requestsFLPanel.Padding = new Padding(10, 10, 10, 50);
 
+            bool isTechnician = fonksiyonlar.GetUserRole(CurrentUserID, con) == "Staff" ? true : false;
+
             // Populate services
-            PopulateServices();
+            PopulateServices(isTechnician, isWorksOn);
         }
 
-        private void PopulateServices()
+        private void PopulateServices(bool isTechnician = false, bool isWorksOn = false)
         {
             // Clear existing controls
             requestsFLPanel.Controls.Clear();
@@ -60,7 +65,7 @@ namespace TeknikServisOtomasyonuProje
 
             Label taleplerimLabel = new Label
             {
-                Text = "Taleplerim",
+                Text = isTechnician ? "Talepler" : "Taleplerim",
                 Font = new Font("Arial", 20, FontStyle.Bold),
                 ForeColor = Color.White,
                 Dock = DockStyle.Fill,
@@ -77,15 +82,29 @@ namespace TeknikServisOtomasyonuProje
             {
                 con.Open();
 
-                // Giriş yapan kullanıcının servisleri
-                List<UserServices> services =
-                    fonksiyonlar.GetUserServices(CurrentUserID, con);
+                /*
+                List<UserServices> services = isTechnician 
+                    ? fonksiyonlar.GetGotServices(con)
+                    : fonksiyonlar.GetUserServices(CurrentUserID, con);*/
+
+                List<UserServices> services = new List<UserServices>();
+                if (isTechnician)
+                {
+                    if (isWorksOn)
+                        services = fonksiyonlar.GetTechniciansServices(CurrentUserID ,con);
+                    else
+                        services = fonksiyonlar.GetGotServices(con);
+                }
+                else
+                {
+                    services = fonksiyonlar.GetUserServices(CurrentUserID, con);
+                }
 
                 if (services.Count == 0)
                 {
                     Label lblEmpty = new Label
                     {
-                        Text = "Henüz oluşturulmuş bir servis talebiniz yok.",
+                        Text = isTechnician ? "Henüz oluşturulmuş bir servis talebi yok." : "Henüz oluşturulmuş bir servis talebiniz yok.",
                         AutoSize = true,
                         Font = new Font("Segoe UI", 10, FontStyle.Italic),
                         ForeColor = Color.Gray
@@ -97,20 +116,34 @@ namespace TeknikServisOtomasyonuProje
 
                 foreach (UserServices service in services)
                 {
+                    Form detay;
                     // create a single Detaylar instance per service so we can listen for its close event
-                    Detaylar detay = new Detaylar(service.ServiceID, CurrentUserID);
-
-                    // when details form closes, refresh the list (e.g., after a delete)
-                    detay.FormClosed += (s, e) =>
+                    if (!isWorksOn)
                     {
-                        // Ensure refresh runs on UI thread
-                        if (this.IsHandleCreated && !this.IsDisposed)
+                        detay = new Detaylar(service.ServiceID, CurrentUserID);
+                        detay.FormClosed += (s, e) =>
                         {
-                            this.BeginInvoke((Action)(() => PopulateServices()));
-                        }
-                    };
+                            // Ensure refresh runs on UI thread
+                            if (this.IsHandleCreated && !this.IsDisposed)
+                            {
+                                this.BeginInvoke((Action)(() => PopulateServices(isTechnician, false)));
+                            }
+                        };
+                    }
+                    else
+                    {
+                        detay = new DetaylarTeknik(service.ServiceID, CurrentUserID);
+                        detay.FormClosed += (s, e) =>
+                        {
+                            // Ensure refresh runs on UI thread and keep the isWorksOn context
+                            if (this.IsHandleCreated && !this.IsDisposed)
+                            {
+                                this.BeginInvoke((Action)(() => PopulateServices(isTechnician, true)));
+                            }
+                        };
+                    }
 
-                    Panel card = fonksiyonlar.CreateServiceCard(service, detay);    
+                    Panel card = fonksiyonlar.CreateServiceCard(service, detay);
                     requestsFLPanel.Controls.Add(card);
                 }
             }

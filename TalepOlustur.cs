@@ -109,5 +109,10 @@ namespace TeknikServisOtomasyonuProje
             }
 
         }
+
+        private void descTBx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

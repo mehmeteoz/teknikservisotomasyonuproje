@@ -195,6 +195,7 @@
             this.descTBx.TabIndex = 14;
             this.descTBx.Text = "Probleminizi Açıklayınız";
             this.descTBx.Click += new System.EventHandler(this.textBox3_Click);
+            this.descTBx.TextChanged += new System.EventHandler(this.descTBx_TextChanged);
             // 
             // label6
             // 

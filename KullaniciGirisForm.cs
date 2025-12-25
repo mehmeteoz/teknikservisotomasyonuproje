@@ -228,13 +228,16 @@ namespace TeknikServisOtomasyonuProje
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader = null;
 
+
+
             try
             {
                 int currentUserId = -1;
+                string userRole;
 
                 con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = @"SELECT UserId 
+                cmd.CommandText = @"SELECT UserId, Role
                     FROM Users 
                     WHERE Email = @Email AND PasswordHash = @Password";
 
@@ -247,10 +250,22 @@ namespace TeknikServisOtomasyonuProje
                 if (reader.Read()) // HasRows + Read yerine direkt Read
                 {
                     currentUserId = reader.GetInt32(0); // 0 = UserId kolon indexi
+                    userRole = reader.GetString(1); // 1 = Role kolon indexi
 
                     //MessageBox.Show("Giriş başarılı!");
                     this.Hide();
-                    new KullanıcıArayuzForm(currentUserId).Show();
+                    if (userRole == "Customer")
+                    {
+                        new KullanıcıArayuzForm(currentUserId).Show();
+                    }
+                    else if (userRole == "Staff")
+                    {
+                        new TeknisyenArayuz(currentUserId).Show();
+                    }
+                    else if (userRole == "Admin")
+                    {
+                        new KullanıcıArayuzForm(currentUserId).Show();
+                    }
                 }
                 else
                 {
@@ -269,11 +284,12 @@ namespace TeknikServisOtomasyonuProje
                 if (reader != null) reader.Close();
                 if (con.State == ConnectionState.Open) con.Close();
             }
-
-
-
-            // database code to login user goes here
+        
         }
+    
+        
+            // database code to login user goes here
+        
 
         private void exit_Click(object sender, EventArgs e)
         {
