@@ -8,10 +8,10 @@ namespace TeknikServisOtomasyonuProje
 {
     internal class ServiceOperations
     {
-        int OperationID { get; set; }
-        int ServiceID { get; set; }
-        string Description { get; set; }
-        double Cost { get; set; }
-        DateTime PerformedAt { get; set; }
+        public int OperationID { get; set; }
+        public int ServiceID { get; set; }
+        public string Description { get; set; }
+        public double Cost { get; set; }
+        public DateTime PerformedAt { get; set; }
     }
 }

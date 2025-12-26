@@ -27,6 +27,7 @@ namespace TeknikServisOtomasyonuProje
             WindowDragHelper.EnableDrag(panel1, this, formTitle);
         }
 
+        string price = "0";
         string resimIsim = "Resim";
         private void Detaylar_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,14 @@ namespace TeknikServisOtomasyonuProje
             fotoDownloadBtn.Visible = false;
             commentBtn.Enabled = false; //
             commentBtn.Visible = false;
+
+            acceptPriceBtn.Enabled = false; //
+            acceptPriceBtn.Visible = false;
+            priceLbl.Visible = false;
+            label2.Visible = false;
+            rejectPriceBtn.Enabled = false;
+            rejectPriceBtn.Visible = false;
+
             string userRole = fonksiyonlar.GetUserRole(userID, con);
             if (userRole == "Staff")
             {
@@ -61,16 +70,37 @@ namespace TeknikServisOtomasyonuProje
             }
             else if (userRole == "Customer")
             {
-                silBtn.Enabled = true; //
-                silBtn.Visible = true; 
-                commentBtn.Enabled = true; //
-                commentBtn.Visible = true;
+
             }
 
             List<UserServices> service = new List<UserServices>();
             service = fonksiyonlar.GetServiceById(serviceID, con);
 
-            resimIsim = "Servis_" + serviceID.ToString() + "_" + service[0].Brand + "_" + service[0].DeviceType;
+            List<ServiceOperations> serviceOperations = new List<ServiceOperations>();
+            if (service[0].Status == "Ücret Onayı Bekleniyor")
+            {
+                serviceOperations = fonksiyonlar.GetServiceOperationsByServiceId(serviceID, con);
+                priceLbl.Text = serviceOperations[0].Cost.ToString("C2") + " TL";
+                price = serviceOperations[0].Cost.ToString("C2") + " TL";
+                acceptPriceBtn.Enabled = true; //
+                acceptPriceBtn.Visible = true;
+                priceLbl.Visible = true;
+                label2.Visible = true;
+                rejectPriceBtn.Enabled = true;
+                rejectPriceBtn.Visible = true;
+            }
+            else if (service[0].Status == "Talep Alındı")
+            {
+                silBtn.Enabled = true; //
+                silBtn.Visible = true;
+            }
+            else if (service[0].Status == "Tamamlandı")
+            {
+                commentBtn.Enabled = true; //
+                commentBtn.Visible = true;
+            }
+
+                resimIsim = "Servis_" + serviceID.ToString() + "_" + service[0].Brand + "_" + service[0].DeviceType;
 
             cihazTipiLbl.Text = service[0].DeviceType;
             markaLbl.Text = service[0].Brand;
@@ -109,6 +139,7 @@ namespace TeknikServisOtomasyonuProje
         private void acceptBtn_Click(object sender, EventArgs e)
         {
             if(!fonksiyonlar.AccpetRequestByTechnicianID(serviceID, userID, con))   return ;
+            this.Close();
             MessageBox.Show("Talep başarıyla kabul edildi.");
         }
 
@@ -117,6 +148,29 @@ namespace TeknikServisOtomasyonuProje
             // Show tooltip with full status text
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(statusLbl, statusLbl.Text);
+        }
+
+        private void acceptPriceBtn_Click(object sender, EventArgs e)
+        {
+            // ücreti onayla butonu
+            DialogResult dialogResult = MessageBox.Show(("Bu ücreti onaylamak istediğinize emin misiniz? \nCihaz işleme geçicektir." + price), 
+                "Ücret Onayını Onayla", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            //fonksiyonlar.AcceptPriceOfService(serviceID, con);
+            if (!fonksiyonlar.AcceptPriceOfService(serviceID, con)) return;
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //reddet butonu
+            DialogResult dialogResult = MessageBox.Show("Bu talebi reddetmek istediğinize emin misiniz? Bu işlem geri alınamaz.\n " +
+                "Reddederseniz cihazı teslim almanız gerekir.", "Reddetme İşlemini Onayla", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            if (!fonksiyonlar.RejectPriceOfService(serviceID, con)) return;
+            this.Close();
         }
     }
 }

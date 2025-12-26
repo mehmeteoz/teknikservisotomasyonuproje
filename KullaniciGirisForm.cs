@@ -29,6 +29,7 @@ namespace TeknikServisOtomasyonuProje
             con = sqlConnect.connectToSQL();
             passwordTB2.UseSystemPasswordChar = true;
             confirmPasswordTB.UseSystemPasswordChar = true;
+            AcceptButton = button1; // Set the default button to the login button
         }
 
         private void KullaniciGirisForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -262,9 +263,17 @@ namespace TeknikServisOtomasyonuProje
                     {
                         new TeknisyenArayuz(currentUserId).Show();
                     }
+                    else if (userRole == "Accountant")
+                    {
+                        new TeknisyenArayuz(currentUserId, userRole).Show();
+                    }
+                    else if (userRole == "Warehouse")
+                    {
+                        new TeknisyenArayuz(currentUserId, userRole).Show();
+                    }
                     else if (userRole == "Admin")
                     {
-                        new KullanıcıArayuzForm(currentUserId).Show();
+                        new TeknisyenArayuz(currentUserId, userRole).Show();
                     }
                 }
                 else

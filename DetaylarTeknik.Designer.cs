@@ -59,22 +59,46 @@
             this.emailLbl = new System.Windows.Forms.Label();
             this.muhasebeyeGonderBtn = new System.Windows.Forms.Button();
             this.muhasebeyeGonderPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.arizaAciklamaTxtBx = new System.Windows.Forms.TextBox();
             this.tamamlandıPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.tamamlandıBtn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.arizaAciklamaTxtBx = new System.Windows.Forms.TextBox();
+            this.ucretBelirlePanel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.kurusUcretTBx = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.liraUcretTBx = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.arizaGerekenTBx = new System.Windows.Forms.TextBox();
+            this.wareHouseGotServicePanel = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.musteriyeTeslimPanel = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.muhasebeyeGonderPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tamamlandıPanel.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.ucretBelirlePanel.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.wareHouseGotServicePanel.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.musteriyeTeslimPanel.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // talepIptalBtn
@@ -134,7 +158,7 @@
             this.statusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.statusLbl.Location = new System.Drawing.Point(678, 183);
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(382, 31);
+            this.statusLbl.Size = new System.Drawing.Size(382, 73);
             this.statusLbl.TabIndex = 36;
             this.statusLbl.Text = "Yükleniyor";
             this.statusLbl.MouseHover += new System.EventHandler(this.statusLbl_MouseHover);
@@ -191,6 +215,7 @@
             this.fotoDownloadBtn.TabIndex = 31;
             this.fotoDownloadBtn.Text = "Fotoğrafı İndir";
             this.fotoDownloadBtn.UseVisualStyleBackColor = false;
+            this.fotoDownloadBtn.Click += new System.EventHandler(this.fotoDownloadBtn_Click);
             // 
             // label5
             // 
@@ -411,6 +436,52 @@
             this.muhasebeyeGonderPanel.Size = new System.Drawing.Size(369, 306);
             this.muhasebeyeGonderPanel.TabIndex = 56;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.muhasebeyeGonderBtn);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.arizaAciklamaTxtBx);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(363, 300);
+            this.panel3.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(3, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(306, 31);
+            this.label12.TabIndex = 58;
+            this.label12.Text = "Muhasebeye Gidecekler";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(3, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(292, 31);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "Arıza Sebebi Açıklama:";
+            // 
+            // arizaAciklamaTxtBx
+            // 
+            this.arizaAciklamaTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.arizaAciklamaTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.arizaAciklamaTxtBx.ForeColor = System.Drawing.Color.White;
+            this.arizaAciklamaTxtBx.Location = new System.Drawing.Point(9, 100);
+            this.arizaAciklamaTxtBx.Multiline = true;
+            this.arizaAciklamaTxtBx.Name = "arizaAciklamaTxtBx";
+            this.arizaAciklamaTxtBx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.arizaAciklamaTxtBx.Size = new System.Drawing.Size(339, 144);
+            this.arizaAciklamaTxtBx.TabIndex = 57;
+            this.arizaAciklamaTxtBx.Text = "Arıza sebebi ve gereken malzemeleri yazınız.";
+            this.arizaAciklamaTxtBx.Click += new System.EventHandler(this.arizaAciklamaTxtBx_Click);
+            // 
             // tamamlandıPanel
             // 
             this.tamamlandıPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -481,51 +552,208 @@
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // panel3
+            // ucretBelirlePanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.muhasebeyeGonderBtn);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.arizaAciklamaTxtBx);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(363, 300);
-            this.panel3.TabIndex = 0;
+            this.ucretBelirlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ucretBelirlePanel.Controls.Add(this.panel5);
+            this.ucretBelirlePanel.Location = new System.Drawing.Point(694, 334);
+            this.ucretBelirlePanel.Name = "ucretBelirlePanel";
+            this.ucretBelirlePanel.Size = new System.Drawing.Size(369, 320);
+            this.ucretBelirlePanel.TabIndex = 58;
             // 
-            // label12
+            // panel5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(3, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(306, 31);
-            this.label12.TabIndex = 58;
-            this.label12.Text = "Muhasebeye Gidecekler";
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel5.Controls.Add(this.label18);
+            this.panel5.Controls.Add(this.kurusUcretTBx);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Controls.Add(this.liraUcretTBx);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.label16);
+            this.panel5.Controls.Add(this.arizaGerekenTBx);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(363, 315);
+            this.panel5.TabIndex = 0;
             // 
-            // label2
+            // label18
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(3, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(292, 31);
-            this.label2.TabIndex = 57;
-            this.label2.Text = "Arıza Sebebi Açıklama:";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label18.Location = new System.Drawing.Point(180, 217);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(46, 31);
+            this.label18.TabIndex = 61;
+            this.label18.Text = "TL";
             // 
-            // arizaAciklamaTxtBx
+            // kurusUcretTBx
             // 
-            this.arizaAciklamaTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.arizaAciklamaTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.arizaAciklamaTxtBx.ForeColor = System.Drawing.Color.White;
-            this.arizaAciklamaTxtBx.Location = new System.Drawing.Point(9, 100);
-            this.arizaAciklamaTxtBx.Multiline = true;
-            this.arizaAciklamaTxtBx.Name = "arizaAciklamaTxtBx";
-            this.arizaAciklamaTxtBx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.arizaAciklamaTxtBx.Size = new System.Drawing.Size(339, 144);
-            this.arizaAciklamaTxtBx.TabIndex = 57;
-            this.arizaAciklamaTxtBx.Text = "Arıza sebebi ve gereken malzemeleri yazınız.";
-            this.arizaAciklamaTxtBx.Click += new System.EventHandler(this.arizaAciklamaTxtBx_Click);
+            this.kurusUcretTBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.kurusUcretTBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.kurusUcretTBx.ForeColor = System.Drawing.Color.White;
+            this.kurusUcretTBx.Location = new System.Drawing.Point(134, 220);
+            this.kurusUcretTBx.Name = "kurusUcretTBx";
+            this.kurusUcretTBx.Size = new System.Drawing.Size(40, 30);
+            this.kurusUcretTBx.TabIndex = 60;
+            this.kurusUcretTBx.Text = "00";
+            this.kurusUcretTBx.TextChanged += new System.EventHandler(this.kurusUcretTBx_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(106, 217);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(22, 31);
+            this.label17.TabIndex = 59;
+            this.label17.Text = ",";
+            // 
+            // liraUcretTBx
+            // 
+            this.liraUcretTBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.liraUcretTBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.liraUcretTBx.ForeColor = System.Drawing.Color.White;
+            this.liraUcretTBx.Location = new System.Drawing.Point(9, 220);
+            this.liraUcretTBx.Name = "liraUcretTBx";
+            this.liraUcretTBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.liraUcretTBx.Size = new System.Drawing.Size(95, 30);
+            this.liraUcretTBx.TabIndex = 59;
+            this.liraUcretTBx.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(3, 12);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(162, 31);
+            this.label15.TabIndex = 58;
+            this.label15.Text = "Ücret Belirle";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(7, 260);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 43);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "Ücret Belirle";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.Location = new System.Drawing.Point(3, 54);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(334, 31);
+            this.label16.TabIndex = 57;
+            this.label16.Text = "Arıza Gerelenler Açıklama:";
+            // 
+            // arizaGerekenTBx
+            // 
+            this.arizaGerekenTBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.arizaGerekenTBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.arizaGerekenTBx.ForeColor = System.Drawing.Color.White;
+            this.arizaGerekenTBx.Location = new System.Drawing.Point(9, 99);
+            this.arizaGerekenTBx.Multiline = true;
+            this.arizaGerekenTBx.Name = "arizaGerekenTBx";
+            this.arizaGerekenTBx.ReadOnly = true;
+            this.arizaGerekenTBx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.arizaGerekenTBx.Size = new System.Drawing.Size(339, 105);
+            this.arizaGerekenTBx.TabIndex = 57;
+            this.arizaGerekenTBx.Text = "Yükleniyor....";
+            // 
+            // wareHouseGotServicePanel
+            // 
+            this.wareHouseGotServicePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.wareHouseGotServicePanel.Controls.Add(this.panel6);
+            this.wareHouseGotServicePanel.Location = new System.Drawing.Point(691, 549);
+            this.wareHouseGotServicePanel.Name = "wareHouseGotServicePanel";
+            this.wareHouseGotServicePanel.Size = new System.Drawing.Size(369, 116);
+            this.wareHouseGotServicePanel.TabIndex = 59;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel6.Controls.Add(this.label21);
+            this.panel6.Controls.Add(this.button2);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(363, 112);
+            this.panel6.TabIndex = 0;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(3, 12);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(318, 31);
+            this.label21.TabIndex = 58;
+            this.label21.Text = "Servis Müşteriden Teslim";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(9, 56);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(171, 43);
+            this.button2.TabIndex = 55;
+            this.button2.Text = "Teslim Al";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // musteriyeTeslimPanel
+            // 
+            this.musteriyeTeslimPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.musteriyeTeslimPanel.Controls.Add(this.panel7);
+            this.musteriyeTeslimPanel.Location = new System.Drawing.Point(688, 549);
+            this.musteriyeTeslimPanel.Name = "musteriyeTeslimPanel";
+            this.musteriyeTeslimPanel.Size = new System.Drawing.Size(369, 116);
+            this.musteriyeTeslimPanel.TabIndex = 60;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel7.Controls.Add(this.label19);
+            this.panel7.Controls.Add(this.button3);
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(363, 112);
+            this.panel7.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.Location = new System.Drawing.Point(3, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(302, 31);
+            this.label19.TabIndex = 58;
+            this.label19.Text = "Servis Müşteriye Teslim";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(9, 56);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(171, 43);
+            this.button3.TabIndex = 55;
+            this.button3.Text = "Teslim Et";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // DetaylarTeknik
             // 
@@ -533,6 +761,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(1079, 677);
+            this.Controls.Add(this.musteriyeTeslimPanel);
+            this.Controls.Add(this.wareHouseGotServicePanel);
+            this.Controls.Add(this.ucretBelirlePanel);
             this.Controls.Add(this.tamamlandıPanel);
             this.Controls.Add(this.muhasebeyeGonderPanel);
             this.Controls.Add(this.emailLbl);
@@ -570,11 +801,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.muhasebeyeGonderPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tamamlandıPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.ucretBelirlePanel.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.wareHouseGotServicePanel.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.musteriyeTeslimPanel.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,5 +862,23 @@
         private System.Windows.Forms.Button tamamlandıBtn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel ucretBelirlePanel;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox arizaGerekenTBx;
+        private System.Windows.Forms.TextBox liraUcretTBx;
+        private System.Windows.Forms.TextBox kurusUcretTBx;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel wareHouseGotServicePanel;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel musteriyeTeslimPanel;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button3;
     }
 }

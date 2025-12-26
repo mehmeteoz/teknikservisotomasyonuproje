@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.formTitle = new System.Windows.Forms.Label();
+            this.exit = new System.Windows.Forms.Button();
             this.cihazTipiLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,7 +50,10 @@
             this.talepIptalBtn = new System.Windows.Forms.Button();
             this.commentBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.exit = new System.Windows.Forms.Button();
+            this.acceptPriceBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.priceLbl = new System.Windows.Forms.Label();
+            this.rejectPriceBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 95);
+            this.panel1.Size = new System.Drawing.Size(872, 95);
             this.panel1.TabIndex = 1;
             // 
             // formTitle
@@ -77,15 +81,29 @@
             this.formTitle.Text = "Detaylar";
             this.formTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.exit;
+            this.exit.Location = new System.Drawing.Point(796, 12);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(64, 64);
+            this.exit.TabIndex = 4;
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // cihazTipiLbl
             // 
             this.cihazTipiLbl.AutoSize = true;
             this.cihazTipiLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cihazTipiLbl.Location = new System.Drawing.Point(456, 111);
             this.cihazTipiLbl.Name = "cihazTipiLbl";
-            this.cihazTipiLbl.Size = new System.Drawing.Size(135, 31);
+            this.cihazTipiLbl.Size = new System.Drawing.Size(141, 31);
             this.cihazTipiLbl.TabIndex = 3;
-            this.cihazTipiLbl.Text = "Cihaz Tipi";
+            this.cihazTipiLbl.Text = "Yükleniyor";
             // 
             // label1
             // 
@@ -167,9 +185,9 @@
             this.markaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.markaLbl.Location = new System.Drawing.Point(456, 151);
             this.markaLbl.Name = "markaLbl";
-            this.markaLbl.Size = new System.Drawing.Size(135, 31);
+            this.markaLbl.Size = new System.Drawing.Size(141, 31);
             this.markaLbl.TabIndex = 12;
-            this.markaLbl.Text = "Cihaz Tipi";
+            this.markaLbl.Text = "Yükleniyor";
             // 
             // modelLbl
             // 
@@ -177,9 +195,9 @@
             this.modelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.modelLbl.Location = new System.Drawing.Point(456, 193);
             this.modelLbl.Name = "modelLbl";
-            this.modelLbl.Size = new System.Drawing.Size(135, 31);
+            this.modelLbl.Size = new System.Drawing.Size(141, 31);
             this.modelLbl.TabIndex = 13;
-            this.modelLbl.Text = "Cihaz Tipi";
+            this.modelLbl.Text = "Yükleniyor";
             // 
             // serialLbl
             // 
@@ -187,9 +205,9 @@
             this.serialLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.serialLbl.Location = new System.Drawing.Point(456, 235);
             this.serialLbl.Name = "serialLbl";
-            this.serialLbl.Size = new System.Drawing.Size(135, 31);
+            this.serialLbl.Size = new System.Drawing.Size(141, 31);
             this.serialLbl.TabIndex = 14;
-            this.serialLbl.Text = "Cihaz Tipi";
+            this.serialLbl.Text = "Yükleniyor";
             // 
             // statusLbl
             // 
@@ -198,7 +216,7 @@
             this.statusLbl.Name = "statusLbl";
             this.statusLbl.Size = new System.Drawing.Size(280, 31);
             this.statusLbl.TabIndex = 16;
-            this.statusLbl.Text = "Cihaz Tipi";
+            this.statusLbl.Text = "Yükleniyor";
             this.statusLbl.MouseHover += new System.EventHandler(this.statusLbl_MouseHover);
             // 
             // descTxtBx
@@ -211,7 +229,7 @@
             this.descTxtBx.Name = "descTxtBx";
             this.descTxtBx.ReadOnly = true;
             this.descTxtBx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descTxtBx.Size = new System.Drawing.Size(464, 144);
+            this.descTxtBx.Size = new System.Drawing.Size(547, 158);
             this.descTxtBx.TabIndex = 17;
             // 
             // silBtn
@@ -234,7 +252,7 @@
             this.acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.acceptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.acceptBtn.ForeColor = System.Drawing.Color.White;
-            this.acceptBtn.Location = new System.Drawing.Point(652, 533);
+            this.acceptBtn.Location = new System.Drawing.Point(724, 533);
             this.acceptBtn.Name = "acceptBtn";
             this.acceptBtn.Size = new System.Drawing.Size(125, 56);
             this.acceptBtn.TabIndex = 19;
@@ -290,26 +308,63 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // exit
+            // acceptPriceBtn
             // 
-            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.exit;
-            this.exit.Location = new System.Drawing.Point(734, 12);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(64, 64);
-            this.exit.TabIndex = 4;
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
+            this.acceptPriceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.acceptPriceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.acceptPriceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.acceptPriceBtn.ForeColor = System.Drawing.Color.White;
+            this.acceptPriceBtn.Location = new System.Drawing.Point(707, 228);
+            this.acceptPriceBtn.Name = "acceptPriceBtn";
+            this.acceptPriceBtn.Size = new System.Drawing.Size(125, 57);
+            this.acceptPriceBtn.TabIndex = 23;
+            this.acceptPriceBtn.Text = "Ücreti Onayla";
+            this.acceptPriceBtn.UseVisualStyleBackColor = false;
+            this.acceptPriceBtn.Click += new System.EventHandler(this.acceptPriceBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(690, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 31);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Ücret:";
+            // 
+            // priceLbl
+            // 
+            this.priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.priceLbl.Location = new System.Drawing.Point(690, 151);
+            this.priceLbl.Name = "priceLbl";
+            this.priceLbl.Size = new System.Drawing.Size(170, 73);
+            this.priceLbl.TabIndex = 25;
+            this.priceLbl.Text = "Yükleniyor";
+            // 
+            // rejectPriceBtn
+            // 
+            this.rejectPriceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rejectPriceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rejectPriceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rejectPriceBtn.ForeColor = System.Drawing.Color.White;
+            this.rejectPriceBtn.Location = new System.Drawing.Point(707, 299);
+            this.rejectPriceBtn.Name = "rejectPriceBtn";
+            this.rejectPriceBtn.Size = new System.Drawing.Size(125, 57);
+            this.rejectPriceBtn.TabIndex = 26;
+            this.rejectPriceBtn.Text = "Ücreti Reddet";
+            this.rejectPriceBtn.UseVisualStyleBackColor = false;
+            this.rejectPriceBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Detaylar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(810, 619);
+            this.ClientSize = new System.Drawing.Size(872, 619);
+            this.Controls.Add(this.rejectPriceBtn);
+            this.Controls.Add(this.priceLbl);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.acceptPriceBtn);
             this.Controls.Add(this.commentBtn);
             this.Controls.Add(this.talepIptalBtn);
             this.Controls.Add(this.raporBtn);
@@ -366,5 +421,9 @@
         private System.Windows.Forms.Button raporBtn;
         private System.Windows.Forms.Button talepIptalBtn;
         private System.Windows.Forms.Button commentBtn;
+        private System.Windows.Forms.Button acceptPriceBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label priceLbl;
+        private System.Windows.Forms.Button rejectPriceBtn;
     }
 }

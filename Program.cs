@@ -18,8 +18,9 @@ namespace TeknikServisOtomasyonuProje
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new KullanıcıArayuzForm(1));  // debug için kullanıcı userıd 1 olan kullanıcıyla giriş yap
-            Application.Run(new TeknisyenArayuz(2)); // debug için teknisyen userıd 2 olan kullanıcıyla giriş yap
-            //Application.Run(new KullaniciGirisForm());
+            //Application.Run(new TeknisyenArayuz(2)); // debug için teknisyen userıd 2 olan kullanıcıyla giriş yap
+            //Application.Run(new TeknisyenArayuz(3, "Accountant")); // debug için muhasebeci userıd 3 olan kullanıcıyla giriş yap
+            Application.Run(new KullaniciGirisForm());
         }
     }
 }

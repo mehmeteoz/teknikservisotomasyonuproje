@@ -253,6 +253,15 @@ namespace TeknikServisOtomasyonuProje
                     WHERE Status = 'Ücret Hesaplanıyor' 
                     ORDER BY CreatedAt DESC";
             }
+            else if (userRole == "Warehouse")
+            {
+                query = @"
+                    SELECT * 
+                    FROM ServiceRecords 
+                    WHERE Status = 'Müşteriden Cihaz Bekleniyor' 
+                    OR Status = 'Teslime Hazır'
+                    ORDER BY CreatedAt DESC";
+            }
             else if (userRole == "Admin")
             {
                 query = @"
@@ -766,9 +775,130 @@ namespace TeknikServisOtomasyonuProje
             }
         }
 
+        public bool CloseService(int serviceId, SqlConnection con)
+        {
+            try
+            {
+                con.Open();
+                string query = "UPDATE ServiceRecords SET ClosedAt = GETDATE() WHERE ServiceID = @ServiceID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ServiceID", serviceId);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
         public bool TeslimeHazirEt(int ServiceId, string Description, SqlConnection con)
         {
-            return ChangeServiceStatus(ServiceId, "Teslime Hazır", con) && ChangeServiceOperationDescription(ServiceId, Description, con);
+            return ChangeServiceStatus(ServiceId, "Teslime Hazır", con) 
+                && ChangeServiceOperationDescription(ServiceId, Description, con)
+                && CloseService(ServiceId, con);
+        }
+
+        public List<ServiceOperations> GetServiceOperationsByServiceId(int serviceId, SqlConnection con)
+        {
+            List<ServiceOperations> operations = new List<ServiceOperations>();
+
+            string query = @"
+            SELECT *
+            FROM ServiceOperations
+            WHERE ServiceID = @ServiceID";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@ServiceID", serviceId);
+
+            SqlDataReader reader = null;
+
+            try
+            {
+                con.Open();
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ServiceOperations operation = new ServiceOperations();
+
+                    operation.OperationID = Convert.ToInt32(reader["OperationID"]);
+                    operation.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+                    operation.Description = reader["Description"].ToString();
+                    operation.Cost = Convert.ToDouble(reader["Cost"]);
+                    operation.PerformedAt = Convert.ToDateTime(reader["PerformedAt"]);
+
+                    operations.Add(operation);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+
+                cmd.Dispose();
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+
+            return operations;
+
+
+
+        }
+
+        public bool UcretBelirle(int ServiceId, double Cost, SqlConnection con)
+        {
+            if (!ChangeServiceStatus(ServiceId, "Ücret Onayı Bekleniyor", con)) return false;
+
+            try
+            {
+                con.Open();
+                string query = "UPDATE ServiceOperations SET Cost = @Cost WHERE ServiceID = @ServiceID";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Cost", Cost);
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+            
+        }
+
+        public bool AcceptPriceOfService(int serviceID, SqlConnection con)
+        {
+            return ChangeServiceStatus(serviceID, "İşlemde", con);
+        }
+
+        public bool RejectPriceOfService(int serviceID, SqlConnection con)
+        {
+            return ChangeServiceStatus(serviceID, "Teslime Hazır", con);
+        }
+
+        public bool GetDeviceFromCustomer(int serviceID, SqlConnection con)
+        {
+            return ChangeServiceStatus(serviceID, "Cihaz Kontrol Ediliyor", con);
+        }
+
+        public bool GiveDeviceToCustomer(int serviceID, SqlConnection con)
+        {
+            return ChangeServiceStatus(serviceID, "Tamamlandı", con);
         }
 
     }

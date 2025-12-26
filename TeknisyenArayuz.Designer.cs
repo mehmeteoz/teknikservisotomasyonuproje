@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.requestsBtn = new System.Windows.Forms.Button();
+            this.roleLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +48,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(758, 537);
             this.panel3.TabIndex = 7;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -88,6 +90,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.roleLbl);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.nameLabel);
             this.panel2.Controls.Add(this.requestsBtn);
@@ -103,7 +106,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 154);
+            this.button2.Location = new System.Drawing.Point(12, 186);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 53);
             this.button2.TabIndex = 5;
@@ -115,7 +118,7 @@
             // 
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nameLabel.ForeColor = System.Drawing.Color.White;
-            this.nameLabel.Location = new System.Drawing.Point(12, 14);
+            this.nameLabel.Location = new System.Drawing.Point(12, 50);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(167, 55);
             this.nameLabel.TabIndex = 4;
@@ -127,13 +130,23 @@
             this.requestsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.requestsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.requestsBtn.ForeColor = System.Drawing.Color.White;
-            this.requestsBtn.Location = new System.Drawing.Point(12, 85);
+            this.requestsBtn.Location = new System.Drawing.Point(12, 117);
             this.requestsBtn.Name = "requestsBtn";
             this.requestsBtn.Size = new System.Drawing.Size(167, 53);
             this.requestsBtn.TabIndex = 0;
             this.requestsBtn.Text = "Talepler";
             this.requestsBtn.UseVisualStyleBackColor = false;
             this.requestsBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // roleLbl
+            // 
+            this.roleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.roleLbl.ForeColor = System.Drawing.Color.White;
+            this.roleLbl.Location = new System.Drawing.Point(12, 10);
+            this.roleLbl.Name = "roleLbl";
+            this.roleLbl.Size = new System.Drawing.Size(167, 26);
+            this.roleLbl.TabIndex = 6;
+            this.roleLbl.Text = "Rol";
             // 
             // TeknisyenArayuz
             // 
@@ -165,5 +178,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button requestsBtn;
+        private System.Windows.Forms.Label roleLbl;
     }
 }

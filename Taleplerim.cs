@@ -18,14 +18,18 @@ namespace TeknikServisOtomasyonuProje
         Fonksiyonlar fonksiyonlar = new Fonksiyonlar();
         SQLConnect connect = new SQLConnect();
         bool isWorksOn = false;
+        bool isAcc = false;
+        bool isWareh = false;
 
 
-        public Taleplerim(int UserID, bool isWorksOnPage = false)
+        public Taleplerim(int UserID, bool isWorksOnPage = false, bool isAccountant = false, bool isWarehouse = false)
         {
             InitializeComponent();
             con = connect.connectToSQL();
             CurrentUserID = UserID;
             isWorksOn = isWorksOnPage;
+            isAcc = isAccountant;
+            isWareh = isWarehouse;
         }
 
 
@@ -46,10 +50,10 @@ namespace TeknikServisOtomasyonuProje
             bool isTechnician = fonksiyonlar.GetUserRole(CurrentUserID, con) == "Staff" ? true : false;
 
             // Populate services
-            PopulateServices(isTechnician, isWorksOn);
+            PopulateServices(isTechnician, isWorksOn, isAcc, isWareh);
         }
 
-        private void PopulateServices(bool isTechnician = false, bool isWorksOn = false)
+        private void PopulateServices(bool isTechnician = false, bool isWorksOn = false, bool isAccountant = false, bool isWarehouse = false)
         {
             // Clear existing controls
             requestsFLPanel.Controls.Clear();
@@ -63,9 +67,28 @@ namespace TeknikServisOtomasyonuProje
                 Margin = new Padding(5, 5, 5, 15)
             };
 
+            string textTalepler;
+            if (isTechnician)
+            {
+                textTalepler = "Talepler";
+            }
+            else if (isAccountant)
+            {
+                textTalepler = "Muhasebe Talepleri";
+            }
+            else if (isWarehouse)
+            {
+                textTalepler = "Depo Talepleri";
+            }
+            else
+            {
+                textTalepler = "Taleplerim";
+            }
+
             Label taleplerimLabel = new Label
             {
-                Text = isTechnician ? "Talepler" : "Taleplerim",
+                Text = textTalepler,
+                //Text = isTechnician ? "Talepler" : "Taleplerim",
                 Font = new Font("Arial", 20, FontStyle.Bold),
                 ForeColor = Color.White,
                 Dock = DockStyle.Fill,
@@ -95,6 +118,14 @@ namespace TeknikServisOtomasyonuProje
                     else
                         services = fonksiyonlar.GetGotServices(con);
                 }
+                else if (isAccountant)
+                {
+                    services = fonksiyonlar.GetGotServices(con, "Accountant");
+                }
+                else if (isWarehouse)
+                {
+                    services = fonksiyonlar.GetGotServices(con, "Warehouse");
+                }
                 else
                 {
                     services = fonksiyonlar.GetUserServices(CurrentUserID, con);
@@ -102,9 +133,28 @@ namespace TeknikServisOtomasyonuProje
 
                 if (services.Count == 0)
                 {
+                    string textTalep;
+                    if (isTechnician)
+                    {
+                        textTalep = "Henüz oluşturulmuş bir servis talebi yok.";
+                    }
+                    else if (isAccountant)
+                    {
+                        textTalep = "Henüz muhasebeye gönderilmiş bir servis talebi yok.";
+                    }
+                    else if (isWarehouse)
+                    {
+                        textTalep = "Henüz depoya gönderilmiş bir servis talebi yok.";
+                    }
+                    else
+                    {
+                        textTalep = "Henüz oluşturulmuş bir servis talebiniz yok.";
+                    }
+
                     Label lblEmpty = new Label
                     {
-                        Text = isTechnician ? "Henüz oluşturulmuş bir servis talebi yok." : "Henüz oluşturulmuş bir servis talebiniz yok.",
+                        Text = textTalep,
+                        //Text = isTechnician ? "Henüz oluşturulmuş bir servis talebi yok." : "Henüz oluşturulmuş bir servis talebiniz yok.",
                         AutoSize = true,
                         Font = new Font("Segoe UI", 10, FontStyle.Italic),
                         ForeColor = Color.Gray
@@ -118,7 +168,31 @@ namespace TeknikServisOtomasyonuProje
                 {
                     Form detay;
                     // create a single Detaylar instance per service so we can listen for its close event
-                    if (!isWorksOn)
+                    if (isAccountant)
+                    {
+                        detay = new DetaylarTeknik(service.ServiceID, CurrentUserID);
+                        detay.FormClosed += (s, e) =>
+                        {
+                            // Ensure refresh runs on UI thread and keep the isWorksOn context
+                            if (this.IsHandleCreated && !this.IsDisposed)
+                            {
+                                this.BeginInvoke((Action)(() => PopulateServices(isTechnician, false, true)));
+                            }
+                        };
+                    }
+                    else if (isWarehouse)
+                    {
+                        detay = new DetaylarTeknik(service.ServiceID, CurrentUserID);
+                        detay.FormClosed += (s, e) =>
+                        {
+                            // Ensure refresh runs on UI thread and keep the isWorksOn context
+                            if (this.IsHandleCreated && !this.IsDisposed)
+                            {
+                                this.BeginInvoke((Action)(() => PopulateServices(isTechnician, false, false, true)));
+                            }
+                        };
+                    }
+                    else if (!isWorksOn)
                     {
                         detay = new Detaylar(service.ServiceID, CurrentUserID);
                         detay.FormClosed += (s, e) =>

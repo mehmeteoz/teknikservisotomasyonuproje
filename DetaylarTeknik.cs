@@ -48,6 +48,11 @@ namespace TeknikServisOtomasyonuProje
                 fotoDownloadBtn.Enabled = true;
                 fotoDownloadBtn.Visible = true;
             }
+            else if (userRole == "Accountant")
+            {
+                fotoDownloadBtn.Enabled = true; //
+                fotoDownloadBtn.Visible = true;
+            }
             else if (userRole == "Admin")
             {
                 talepIptalBtn.Enabled = true; //
@@ -60,6 +65,13 @@ namespace TeknikServisOtomasyonuProje
             muhasebeyeGonderPanel.Visible = false;
             tamamlandıPanel.Enabled = false; //
             tamamlandıPanel.Visible = false;
+            ucretBelirlePanel.Enabled = false; //
+            ucretBelirlePanel.Visible = false;
+
+            wareHouseGotServicePanel.Enabled = false; //
+            wareHouseGotServicePanel.Visible = false;
+            musteriyeTeslimPanel.Enabled = false; //
+            musteriyeTeslimPanel.Visible = false;
 
 
             List<UserServices> service = new List<UserServices>();
@@ -76,8 +88,34 @@ namespace TeknikServisOtomasyonuProje
                     tamamlandıPanel.Enabled = true;
                     tamamlandıPanel.Visible = true;
                 }
-                
+
             }
+            else if (userRole == "Accountant")
+            {
+                if (service[0].Status == "Ücret Hesaplanıyor")
+                {
+                    ucretBelirlePanel.Enabled = true; //
+                    ucretBelirlePanel.Visible = true;
+                    List<ServiceOperations> serviceOperations = new List<ServiceOperations>();
+                    serviceOperations = fonksiyonlar.GetServiceOperationsByServiceId(serviceID, con);
+                    arizaGerekenTBx.Text = serviceOperations[0].Description;
+                }
+            }
+            else if (userRole == "Warehouse")
+            {
+                if (service[0].Status == "Müşteriden Cihaz Bekleniyor")
+                {
+                    wareHouseGotServicePanel.Enabled = true; //
+                    wareHouseGotServicePanel.Visible = true;
+                }
+                else if (service[0].Status == "Teslime Hazır")
+                {
+                    musteriyeTeslimPanel.Enabled = true; //
+                    musteriyeTeslimPanel.Visible = true;
+                }
+            }
+
+
 
             List<User> customer = new List<User>();
             customer = fonksiyonlar.GetUserInfo(service[0].CustomerID, con);
@@ -123,11 +161,11 @@ namespace TeknikServisOtomasyonuProje
                 return;
             }
             // arıza açıklamasını ekle bunu göndermek istediğinize emin misiniz diye sor
-            DialogResult dialogResult = MessageBox.Show(("Arıza açıklamasını eklemek ve cihazı muhasebeye göndermek istediğinize emin misiniz?\n" + textBox1.Text), "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show(("Arıza açıklamasını eklemek ve cihazı muhasebeye göndermek istediğinize emin misiniz?\n" + arizaAciklamaTxtBx.Text), "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.No)
                 return;
 
-            if (!fonksiyonlar.MuhasebeyeGonder(serviceID, textBox1.Text, con))
+            if (!fonksiyonlar.MuhasebeyeGonder(serviceID, arizaAciklamaTxtBx.Text, con))
             {
                 MessageBox.Show("Muhasebeye gönderilirken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -194,6 +232,88 @@ namespace TeknikServisOtomasyonuProje
             }
 
 
+        }
+
+        private void fotoDownloadBtn_Click(object sender, EventArgs e)
+        {
+            fonksiyonlar.ResimKaydet(pictureBox1.Image, resimIsim);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //ücret belirle
+            // Validate input safely using integer parsing to avoid culture issues with decimal separators
+            if (!int.TryParse(liraUcretTBx.Text, out int lira) || lira == 0)
+            {
+                MessageBox.Show("Lütfen geçerli bir ücret giriniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(kurusUcretTBx.Text, out int kurus) || kurus < 0 || kurus > 99)
+            {
+                MessageBox.Show("Lütfen geçerli bir ücret giriniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Build the final amount without relying on string concatenation (avoids culture decimal separator issues)
+            decimal amount = lira + kurus / 100m;
+
+            // ask for confirmation
+            DialogResult dialogResult = MessageBox.Show(
+                "Cihaz ücreti belirlemek istediğinize emin misiniz?\nÜcret: " + amount.ToString("F2") + " TL",
+                "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+                return;
+
+            if (!fonksiyonlar.UcretBelirle(serviceID, Convert.ToDouble(amount), con))
+            {
+                MessageBox.Show("Ücret belirlenirken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            this.Close();
+
+        }
+
+        private void kurusUcretTBx_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(kurusUcretTBx.Text))
+            {
+                kurusUcretTBx.Text = "00";
+            }
+            if (kurusUcretTBx.Text.Length > 2)
+            {
+                kurusUcretTBx.Text = kurusUcretTBx.Text.Substring(0, 2); // Limit to 2 characters
+                kurusUcretTBx.SelectionStart = kurusUcretTBx.Text.Length; // Move cursor to the end
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //servis teslim al butonu
+            DialogResult dialogResult = MessageBox.Show("Depoya servis alındığını onaylıyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+                return;
+            if (!fonksiyonlar.GetDeviceFromCustomer(serviceID, con))
+            {
+                MessageBox.Show("Servis depoya alınırken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //servis teslim et butonu
+            DialogResult dialogResult = MessageBox.Show("Müşteriye servis teslim edildiğini onaylıyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+                return;
+            if (!fonksiyonlar.GiveDeviceToCustomer(serviceID, con))
+            {
+                MessageBox.Show("Servis müşteriye teslim edilirken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            this.Close();
         }
     }
 }
