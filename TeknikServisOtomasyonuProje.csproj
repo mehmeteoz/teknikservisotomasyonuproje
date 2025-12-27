@@ -98,6 +98,7 @@
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceOperations.cs" />
+    <Compile Include="ServiceReports.cs" />
     <Compile Include="SQLConnect.cs" />
     <Compile Include="Taleplerim.cs">
       <SubType>Form</SubType>

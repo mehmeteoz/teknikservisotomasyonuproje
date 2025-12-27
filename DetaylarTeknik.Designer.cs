@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.talepIptalBtn = new System.Windows.Forms.Button();
             this.raporBtn = new System.Windows.Forms.Button();
             this.silBtn = new System.Windows.Forms.Button();
             this.descTxtBx = new System.Windows.Forms.TextBox();
@@ -87,6 +86,12 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.raporNedenPanel = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.raporNedenTBx = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.muhasebeyeGonderPanel.SuspendLayout();
@@ -99,20 +104,9 @@
             this.panel6.SuspendLayout();
             this.musteriyeTeslimPanel.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.raporNedenPanel.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // talepIptalBtn
-            // 
-            this.talepIptalBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.talepIptalBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.talepIptalBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.talepIptalBtn.ForeColor = System.Drawing.Color.White;
-            this.talepIptalBtn.Location = new System.Drawing.Point(102, 620);
-            this.talepIptalBtn.Name = "talepIptalBtn";
-            this.talepIptalBtn.Size = new System.Drawing.Size(128, 43);
-            this.talepIptalBtn.TabIndex = 41;
-            this.talepIptalBtn.Text = "Talepi İptal Et";
-            this.talepIptalBtn.UseVisualStyleBackColor = false;
             // 
             // raporBtn
             // 
@@ -163,6 +157,7 @@
             this.statusLbl.Size = new System.Drawing.Size(382, 73);
             this.statusLbl.TabIndex = 36;
             this.statusLbl.Text = "Yükleniyor";
+            this.statusLbl.Click += new System.EventHandler(this.statusLbl_Click);
             this.statusLbl.MouseHover += new System.EventHandler(this.statusLbl_MouseHover);
             // 
             // serialLbl
@@ -757,12 +752,86 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // raporNedenPanel
+            // 
+            this.raporNedenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.raporNedenPanel.Controls.Add(this.panel8);
+            this.raporNedenPanel.Location = new System.Drawing.Point(694, 334);
+            this.raporNedenPanel.Name = "raporNedenPanel";
+            this.raporNedenPanel.Size = new System.Drawing.Size(369, 320);
+            this.raporNedenPanel.TabIndex = 59;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel8.Controls.Add(this.button5);
+            this.panel8.Controls.Add(this.label23);
+            this.panel8.Controls.Add(this.button4);
+            this.panel8.Controls.Add(this.raporNedenTBx);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(363, 315);
+            this.panel8.TabIndex = 0;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label23.Location = new System.Drawing.Point(12, 23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(189, 31);
+            this.label23.TabIndex = 58;
+            this.label23.Text = "Rapor Nedeni:";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(7, 260);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(171, 43);
+            this.button4.TabIndex = 55;
+            this.button4.Text = "Talebi İptal Et";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // raporNedenTBx
+            // 
+            this.raporNedenTBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.raporNedenTBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.raporNedenTBx.ForeColor = System.Drawing.Color.White;
+            this.raporNedenTBx.Location = new System.Drawing.Point(9, 67);
+            this.raporNedenTBx.Multiline = true;
+            this.raporNedenTBx.Name = "raporNedenTBx";
+            this.raporNedenTBx.ReadOnly = true;
+            this.raporNedenTBx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.raporNedenTBx.Size = new System.Drawing.Size(339, 181);
+            this.raporNedenTBx.TabIndex = 57;
+            this.raporNedenTBx.Text = "Yükleniyor....";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(183, 261);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(171, 43);
+            this.button5.TabIndex = 59;
+            this.button5.Text = "Raporu Geri Al";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // DetaylarTeknik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(1079, 677);
+            this.Controls.Add(this.raporNedenPanel);
             this.Controls.Add(this.musteriyeTeslimPanel);
             this.Controls.Add(this.wareHouseGotServicePanel);
             this.Controls.Add(this.ucretBelirlePanel);
@@ -777,7 +846,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.talepIptalBtn);
             this.Controls.Add(this.raporBtn);
             this.Controls.Add(this.silBtn);
             this.Controls.Add(this.descTxtBx);
@@ -817,13 +885,15 @@
             this.musteriyeTeslimPanel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.raporNedenPanel.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button talepIptalBtn;
         private System.Windows.Forms.Button raporBtn;
         private System.Windows.Forms.Button silBtn;
         private System.Windows.Forms.TextBox descTxtBx;
@@ -882,5 +952,11 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel raporNedenPanel;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox raporNedenTBx;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -29,6 +29,7 @@ namespace TeknikServisOtomasyonuProje
 
         string price = "0";
         string resimIsim = "Resim";
+        bool isServiceReported = false, isServiceCanceled = false;
         private void Detaylar_Load(object sender, EventArgs e)
         {
             silBtn.Enabled = false; //
@@ -99,14 +100,26 @@ namespace TeknikServisOtomasyonuProje
                     silBtn.Enabled = true; //
                     silBtn.Visible = true;
                 }
+                else if (service[0].Status == "İptal Edildi")
+                {
+                    silBtn.Enabled = true; //
+                    silBtn.Visible = true;
+                    isServiceCanceled = true;
+                }
+                else if (service[0].Status == "Rapor Edildi")
+                {
+                    silBtn.Enabled = true; //
+                    silBtn.Visible = true;
+                    isServiceReported = true;
+                }
                 else if (service[0].Status == "Tamamlandı")
                 {
-                    if (!fonksiyonlar.isServiceCommented(serviceID,con))
+                    if (!fonksiyonlar.isServiceCommented(serviceID, con))
                     {
                         commentBtn.Enabled = true; //
                         commentBtn.Visible = true;
                     }
-                    
+
                 }
 
             }
@@ -161,7 +174,17 @@ namespace TeknikServisOtomasyonuProje
         {
             // Show tooltip with full status text
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(statusLbl, statusLbl.Text);
+            string toolTipText = statusLbl.Text;
+            if (isServiceReported) 
+            {
+                toolTipText = "Servis talebiniz raporlanmıştır. Talep raporlanma sebeplerini websitemizden talep kuralları kısmında görebilirsiniz.";
+            }
+            else if (isServiceCanceled) 
+            {
+                toolTipText = "Servis talebiniz iptal edilmiştir. Talep iptal sebeplerini websitemizden talep kuralları kısmında görebilirsiniz.";
+            }
+
+                toolTip.SetToolTip(statusLbl, toolTipText);
         }
 
         private void acceptPriceBtn_Click(object sender, EventArgs e)

@@ -269,7 +269,7 @@ namespace TeknikServisOtomasyonuProje
                 query = @"
                     SELECT * 
                     FROM ServiceRecords 
-                    WHERE Status = 'Raporlandı' 
+                    WHERE Status = 'Rapor Edildi' 
                     ORDER BY CreatedAt DESC";
             }
 
@@ -940,7 +940,7 @@ namespace TeknikServisOtomasyonuProje
 
         }
 
-        public void ChangeRadioButtonColor (RadioButton radioButton, Color? enableColor = null, Color? disableColor = null)
+        public void ChangeRadioButtonColor(RadioButton radioButton, Color? enableColor = null, Color? disableColor = null)
         {
             Color enabled = enableColor ?? Color.Yellow;
             Color disabled = disableColor ?? Color.White;
@@ -948,7 +948,7 @@ namespace TeknikServisOtomasyonuProje
             radioButton.ForeColor = radioButton.Checked ? enabled : disabled;
         }
 
-        public bool CommentServiceByID(int ServiceId, int UserId, string Description, int Rating,SqlConnection con)
+        public bool CommentServiceByID(int ServiceId, int UserId, string Description, int Rating, SqlConnection con)
         {
             SqlCommand cmd = new SqlCommand();
 
@@ -1020,6 +1020,83 @@ namespace TeknikServisOtomasyonuProje
                 if (con.State == ConnectionState.Open) con.Close();
             }
 
+        }
+
+        public bool CancelServiceByID(int ServiceId, SqlConnection con)
+        {
+            return ChangeServiceStatus(ServiceId, "İptal Edildi", con);
+        }
+
+        public bool CancelServiceReportByID(int ServiceId, SqlConnection con)
+        {
+            try
+            {
+                con.Open();
+                string query = @"DELETE FROM ServiceReports WHERE ServiceID = @ServiceID; 
+                    UPDATE ServiceRecords SET Status = 'Talep Alındı' WHERE ServiceID = @ServiceID";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+
+        }
+
+        public List<ServiceReports> GetServiceReportByID(int ServiceId, SqlConnection con)
+        {
+            List<ServiceReports> reports = new List<ServiceReports>();
+
+            string query = @"
+            SELECT *
+            FROM ServiceReports
+            WHERE ServiceID = @ServiceID";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+
+            SqlDataReader reader = null;
+
+            try
+            {
+                con.Open();
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ServiceReports report = new ServiceReports();
+
+                    report.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+                    report.TechnicianID = Convert.ToInt32(reader["TechnicianID"]);
+                    report.Description = reader["Description"].ToString();
+                    report.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
+
+                    reports.Add(report);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+
+                cmd.Dispose();
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+
+            return reports;
         }
     }
 }

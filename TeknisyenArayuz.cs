@@ -21,6 +21,7 @@ namespace TeknikServisOtomasyonuProje
         int userID;
         bool isAcc = false;
         bool isWareh = false;
+        bool isAdm = false;
 
         public TeknisyenArayuz(int CurrentUserId, string UserRole = "Staff")
         {
@@ -32,19 +33,25 @@ namespace TeknikServisOtomasyonuProje
             this.userRole = UserRole;
             isAcc = UserRole == "Accountant" ? true : false;
             isWareh = UserRole == "Warehouse" ? true : false;
+            isAdm = UserRole == "Admin" ? true : false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fonksiyonlar.formGetir(new Taleplerim(userID, isAccountant:isAcc, isWarehouse:isWareh), panel3);
+            fonksiyonlar.formGetir(new Taleplerim(userID, isAccountant:isAcc, isWarehouse:isWareh, isAdmin:isAdm), panel3);
         }
 
         private void TeknisyenArayuz_Load(object sender, EventArgs e)
         {
             userRole = userCredentials[0].Role;
             nameLabel.Text = userCredentials[0].FirstName + " " + userCredentials[0].LastName;
-            roleLbl.Text = userRole;
-            if (userRole == "Accountant" || userRole == "Warehouse")
+            //roleLbl.Text = userRole;
+            roleLbl.Text = userRole == "Staff" ? "Teknisyen" : 
+                userRole == "Accountant" ? "Muhasebe" : 
+                userRole == "Warehouse" ? "Depo" :
+                userRole;
+
+            if (userRole == "Accountant" || userRole == "Warehouse" || userRole == "Admin")
             {
                 button2.Visible = false;
                 button2.Enabled = false;

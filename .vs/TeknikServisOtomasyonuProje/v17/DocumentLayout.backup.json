@@ -1,7 +1,52 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:fonksiyonlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\detaylar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:detaylar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\detaylar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:detaylar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\detaylarteknik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:detaylarteknik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\detaylarteknik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:detaylarteknik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\servicereports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:servicereports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\taleplerim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:taleplerim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\taleplerim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:taleplerim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\talepolustur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:talepolustur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\teknisyenarayuz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:teknisyenarayuz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|c:\\users\\user\\documents\\github\\teknikservisotomasyonuproje\\teknisyenarayuz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8BC5FB3-C08C-48B2-9449-31B6F6BB2787}|TeknikServisOtomasyonuProje.csproj|solutionrelative:teknisyenarayuz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +63,144 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Detaylar.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Detaylar.cs",
+              "RelativeDocumentMoniker": "Detaylar.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Detaylar.cs",
+              "RelativeToolTip": "Detaylar.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAqwJQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:59:59.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Detaylar.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Detaylar.cs",
+              "RelativeDocumentMoniker": "Detaylar.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Detaylar.cs [Design]",
+              "RelativeToolTip": "Detaylar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:59:56.235Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceReports.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\ServiceReports.cs",
+              "RelativeDocumentMoniker": "ServiceReports.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\ServiceReports.cs",
+              "RelativeToolTip": "ServiceReports.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:47:29.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DetaylarTeknik.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\DetaylarTeknik.cs",
+              "RelativeDocumentMoniker": "DetaylarTeknik.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\DetaylarTeknik.cs",
+              "RelativeToolTip": "DetaylarTeknik.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAHYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:31:19.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DetaylarTeknik.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\DetaylarTeknik.cs",
+              "RelativeDocumentMoniker": "DetaylarTeknik.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\DetaylarTeknik.cs [Design]",
+              "RelativeToolTip": "DetaylarTeknik.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:26:28.068Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Taleplerim.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Taleplerim.cs",
+              "RelativeDocumentMoniker": "Taleplerim.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Taleplerim.cs [Design]",
+              "RelativeToolTip": "Taleplerim.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:25:31.624Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TalepOlustur.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\TalepOlustur.cs",
+              "RelativeDocumentMoniker": "TalepOlustur.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\TalepOlustur.cs [Design]",
+              "RelativeToolTip": "TalepOlustur.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:25:31.086Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fonksiyonlar.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
+              "RelativeDocumentMoniker": "Fonksiyonlar.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Fonksiyonlar.cs",
+              "RelativeToolTip": "Fonksiyonlar.cs",
+              "ViewState": "AgIAAFkCAAAAAAAAAAAAAGwCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:20:10.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Taleplerim.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Taleplerim.cs",
+              "RelativeDocumentMoniker": "Taleplerim.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\Taleplerim.cs",
+              "RelativeToolTip": "Taleplerim.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAAAMAAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:18:13.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TeknisyenArayuz.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\TeknisyenArayuz.cs",
+              "RelativeDocumentMoniker": "TeknisyenArayuz.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\TeknisyenArayuz.cs",
+              "RelativeToolTip": "TeknisyenArayuz.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAiwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:17:27.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TeknisyenArayuz.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\TeknisyenArayuz.cs",
+              "RelativeDocumentMoniker": "TeknisyenArayuz.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\teknikservisotomasyonuproje\\TeknisyenArayuz.cs [Design]",
+              "RelativeToolTip": "TeknisyenArayuz.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T17:17:20.879Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

@@ -91,6 +91,38 @@ CREATE TABLE ServiceReports (
     FOREIGN KEY (TechnicianID) REFERENCES Users(UserID)
 );
 
+-- Constraints
+
+    --ServiceOperations
+ALTER TABLE ServiceOperations
+DROP CONSTRAINT IF EXISTS FK__ServiceOp__Servi__;
+
+ALTER TABLE ServiceOperations
+ADD CONSTRAINT FK_ServiceOperations_ServiceRecords
+FOREIGN KEY (ServiceID)
+REFERENCES ServiceRecords(ServiceID)
+ON DELETE CASCADE;
+
+    --ServiceComments
+ALTER TABLE ServiceComments
+DROP CONSTRAINT IF EXISTS FK__ServiceCo__Servi__;
+
+ALTER TABLE ServiceComments
+ADD CONSTRAINT FK_ServiceComments_ServiceRecords
+FOREIGN KEY (ServiceID)
+REFERENCES ServiceRecords(ServiceID)
+ON DELETE CASCADE;
+
+    --ServiceReports
+ALTER TABLE ServiceReports
+DROP CONSTRAINT IF EXISTS FK__ServiceRe__Servi__;
+ 
+ALTER TABLE ServiceReports
+ADD CONSTRAINT FK_ServiceReports_ServiceRecords
+FOREIGN KEY (ServiceID)
+REFERENCES ServiceRecords(ServiceID)
+ON DELETE CASCADE;
+
 
 -- Inserts
 

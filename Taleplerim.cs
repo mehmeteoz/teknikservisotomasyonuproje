@@ -20,9 +20,10 @@ namespace TeknikServisOtomasyonuProje
         bool isWorksOn = false;
         bool isAcc = false;
         bool isWareh = false;
+        bool isAdm = false;
 
 
-        public Taleplerim(int UserID, bool isWorksOnPage = false, bool isAccountant = false, bool isWarehouse = false)
+        public Taleplerim(int UserID, bool isWorksOnPage = false, bool isAccountant = false, bool isWarehouse = false, bool isAdmin = false)
         {
             InitializeComponent();
             con = connect.connectToSQL();
@@ -30,6 +31,7 @@ namespace TeknikServisOtomasyonuProje
             isWorksOn = isWorksOnPage;
             isAcc = isAccountant;
             isWareh = isWarehouse;
+            isAdm = isAdmin;
         }
 
 
@@ -50,10 +52,10 @@ namespace TeknikServisOtomasyonuProje
             bool isTechnician = fonksiyonlar.GetUserRole(CurrentUserID, con) == "Staff" ? true : false;
 
             // Populate services
-            PopulateServices(isTechnician, isWorksOn, isAcc, isWareh);
+            PopulateServices(isTechnician, isWorksOn, isAcc, isWareh, isAdm);
         }
 
-        private void PopulateServices(bool isTechnician = false, bool isWorksOn = false, bool isAccountant = false, bool isWarehouse = false)
+        private void PopulateServices(bool isTechnician = false, bool isWorksOn = false, bool isAccountant = false, bool isWarehouse = false, bool isAdmin = false)
         {
             // Clear existing controls
             requestsFLPanel.Controls.Clear();
@@ -79,6 +81,10 @@ namespace TeknikServisOtomasyonuProje
             else if (isWarehouse)
             {
                 textTalepler = "Depo Talepleri";
+            }
+            else if (isAdmin)
+            {
+                textTalepler = "Raporlanan Talepler";
             }
             else
             {
@@ -126,6 +132,10 @@ namespace TeknikServisOtomasyonuProje
                 {
                     services = fonksiyonlar.GetGotServices(con, "Warehouse");
                 }
+                else if (isAdmin)
+                {
+                    services = fonksiyonlar.GetGotServices(con, "Admin");
+                }
                 else
                 {
                     services = fonksiyonlar.GetUserServices(CurrentUserID, con);
@@ -145,6 +155,10 @@ namespace TeknikServisOtomasyonuProje
                     else if (isWarehouse)
                     {
                         textTalep = "Henüz depoya gönderilmiş bir servis talebi yok.";
+                    }
+                    else if (isAdmin)
+                    {
+                        textTalep = "Henüz raporlanmış bir servis talebi yok.";
                     }
                     else
                     {
@@ -189,6 +203,18 @@ namespace TeknikServisOtomasyonuProje
                             if (this.IsHandleCreated && !this.IsDisposed)
                             {
                                 this.BeginInvoke((Action)(() => PopulateServices(isTechnician, false, false, true)));
+                            }
+                        };
+                    }
+                    else if (isAdmin)
+                    {
+                        detay = new DetaylarTeknik(service.ServiceID, CurrentUserID);
+                        detay.FormClosed += (s, e) =>
+                        {
+                            // Ensure refresh runs on UI thread and keep the isWorksOn context
+                            if (this.IsHandleCreated && !this.IsDisposed)
+                            {
+                                this.BeginInvoke((Action)(() => PopulateServices(isTechnician, false, false, false, true)));
                             }
                         };
                     }

@@ -36,15 +36,11 @@ namespace TeknikServisOtomasyonuProje
             silBtn.Visible = false;
             raporBtn.Enabled = false; //
             raporBtn.Visible = false;
-            talepIptalBtn.Visible = false; // 
-            talepIptalBtn.Enabled = false;
             fotoDownloadBtn.Enabled = false; //
             fotoDownloadBtn.Visible = false;
             string userRole = fonksiyonlar.GetUserRole(userID, con);
             if (userRole == "Staff")
             {
-                raporBtn.Enabled = true; //
-                raporBtn.Visible = true;
                 fotoDownloadBtn.Enabled = true;
                 fotoDownloadBtn.Visible = true;
             }
@@ -55,8 +51,6 @@ namespace TeknikServisOtomasyonuProje
             }
             else if (userRole == "Admin")
             {
-                talepIptalBtn.Enabled = true; //
-                talepIptalBtn.Visible = true;
                 fotoDownloadBtn.Enabled = true; // 
                 fotoDownloadBtn.Visible = true;
             }
@@ -78,7 +72,12 @@ namespace TeknikServisOtomasyonuProje
             service = fonksiyonlar.GetServiceById(serviceID, con);
             if (userRole == "Staff")
             {
-                if (service[0].Status == "Cihaz Kontrol Ediliyor")
+                if (service[0].Status == "Talep Alındı")
+                {
+                    raporBtn.Enabled = true; //
+                    raporBtn.Visible = true;
+                }
+                else if (service[0].Status == "Cihaz Kontrol Ediliyor")
                 {
                     muhasebeyeGonderPanel.Enabled = true;
                     muhasebeyeGonderPanel.Visible = true;
@@ -114,10 +113,19 @@ namespace TeknikServisOtomasyonuProje
                     musteriyeTeslimPanel.Visible = true;
                 }
             }
+            else if (userRole == "Admin")
+            {
+                if (service[0].Status == "Rapor Edildi")
+                {
+                    List<ServiceReports> serviceReports = new List<ServiceReports>();
+                    serviceReports = fonksiyonlar.GetServiceReportByID(serviceID, con);
+                    raporNedenTBx.Text = serviceReports[0].Description;
+                }
+            }
 
 
 
-            List<User> customer = new List<User>();
+                List<User> customer = new List<User>();
             customer = fonksiyonlar.GetUserInfo(service[0].CustomerID, con);
 
             resimIsim = "Servis_" + serviceID.ToString() + "_" + service[0].Brand + "_" + service[0].DeviceType;
@@ -314,6 +322,40 @@ namespace TeknikServisOtomasyonuProje
                 return;
             }
             this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //talebi itpal et butonu
+            DialogResult dialogResult = MessageBox.Show("Servis talebini iptal etmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+                return;
+            if (!fonksiyonlar.CancelServiceByID(serviceID, con))
+            {
+                MessageBox.Show("Servis talebi iptal edilirken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            MessageBox.Show("Servis talebi başarıyla iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //raporu geri al butonu
+            DialogResult dialogResult = MessageBox.Show("Servis raporunu geri almak istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
+                return;
+            if (!fonksiyonlar.CancelServiceReportByID(serviceID, con))
+            {
+                MessageBox.Show("Servis raporu geri alınırken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Servis raporu başarıyla geri alındı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void statusLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
