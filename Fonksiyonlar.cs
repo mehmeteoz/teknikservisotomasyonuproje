@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace TeknikServisOtomasyonuProje
 {
@@ -133,7 +134,7 @@ namespace TeknikServisOtomasyonuProje
                 FileInfo dosya = new FileInfo(ofd.FileName);
                 if (dosya.Length > maxDosyaBoyutuBayt)
                 {
-                    MessageBox.Show(("Dosya boyutu çok büyük!" + " Dosya " + maxDosyaBoyutuBayt/1000000 + " Megabayttan Küçük Olmalıdır"), "Hata");
+                    MessageBox.Show(("Dosya boyutu çok büyük!" + " Dosya " + maxDosyaBoyutuBayt / 1000000 + " Megabayttan Küçük Olmalıdır"), "Hata");
                     return;
                 }
 
@@ -164,7 +165,7 @@ namespace TeknikServisOtomasyonuProje
         {
             panel.Controls.Clear();
 
-            frm.TopLevel = false;                 
+            frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
 
@@ -172,7 +173,7 @@ namespace TeknikServisOtomasyonuProje
             frm.Show();
         }
 
-        public List<UserServices> GetTechniciansServices(int technicianID,SqlConnection sqlConnection)
+        public List<UserServices> GetTechniciansServices(int technicianID, SqlConnection sqlConnection)
         {
             List<UserServices> services = new List<UserServices>();
             string query = @"
@@ -238,7 +239,8 @@ namespace TeknikServisOtomasyonuProje
         {
             List<UserServices> services = new List<UserServices>();
             string query = string.Empty;
-            if (userRole == "Staff") { 
+            if (userRole == "Staff")
+            {
                 query = @"
                     SELECT * 
                     FROM ServiceRecords 
@@ -272,7 +274,7 @@ namespace TeknikServisOtomasyonuProje
             }
 
             SqlCommand cmd = new SqlCommand(query, sqlConnection);
-            
+
             SqlDataReader reader = null;
 
 
@@ -384,9 +386,9 @@ namespace TeknikServisOtomasyonuProje
             return services;
         }
 
-        
 
-        public List<UserServices> GetServiceById(int serviceId ,SqlConnection sqlConnection)
+
+        public List<UserServices> GetServiceById(int serviceId, SqlConnection sqlConnection)
         {
             List<UserServices> services = new List<UserServices>();
 
@@ -541,7 +543,7 @@ namespace TeknikServisOtomasyonuProje
                 {
                     MessageBox.Show("Detaylar açılamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                    
+
             };
 
 
@@ -643,7 +645,7 @@ namespace TeknikServisOtomasyonuProje
                 if (ext == ".jpg" || ext == ".jpeg")
                     format = ImageFormat.Jpeg;
                 //else if (ext == ".bmp")
-                    //format = ImageFormat.Bmp;
+                //format = ImageFormat.Bmp;
 
                 try
                 {
@@ -800,7 +802,7 @@ namespace TeknikServisOtomasyonuProje
 
         public bool TeslimeHazirEt(int ServiceId, string Description, SqlConnection con)
         {
-            return ChangeServiceStatus(ServiceId, "Teslime Hazır", con) 
+            return ChangeServiceStatus(ServiceId, "Teslime Hazır", con)
                 && ChangeServiceOperationDescription(ServiceId, Description, con)
                 && CloseService(ServiceId, con);
         }
@@ -878,7 +880,7 @@ namespace TeknikServisOtomasyonuProje
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
             }
-            
+
         }
 
         public bool AcceptPriceOfService(int serviceID, SqlConnection con)
@@ -901,7 +903,123 @@ namespace TeknikServisOtomasyonuProje
             return ChangeServiceStatus(serviceID, "Tamamlandı", con);
         }
 
-    }
+        public bool ReportServiceByTechnicianID(int serviceId, int technicianId, string Description, SqlConnection con)
+        {
+            SqlCommand cmd = new SqlCommand();
 
-    
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = @"
+                INSERT INTO ServiceReports (ServiceID, TechnicianID, Description)
+                VALUES (@ServiceID, @TechnicianID, @Description);
+
+                UPDATE ServiceRecords SET Status = @Status WHERE ServiceID = @ServiceID;";
+
+                cmd.Parameters.AddWithValue("@ServiceID", serviceId);
+                cmd.Parameters.AddWithValue("@TechnicianID", technicianId);
+                cmd.Parameters.AddWithValue("@Description", Description);
+                cmd.Parameters.AddWithValue("@Status", "Rapor Edildi");
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                // Bağlantıyı kapat
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+
+        }
+
+        public void ChangeRadioButtonColor (RadioButton radioButton, Color? enableColor = null, Color? disableColor = null)
+        {
+            Color enabled = enableColor ?? Color.Yellow;
+            Color disabled = disableColor ?? Color.White;
+
+            radioButton.ForeColor = radioButton.Checked ? enabled : disabled;
+        }
+
+        public bool CommentServiceByID(int ServiceId, int UserId, string Description, int Rating,SqlConnection con)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = @"
+                INSERT INTO ServiceComments (ServiceID, CustomerID, Rating, CommentText)
+                VALUES (@ServiceID, @CustomerID, @Rating, @CommentText);";
+
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+                cmd.Parameters.AddWithValue("@CustomerID", UserId);
+                cmd.Parameters.AddWithValue("@CommentText", Description);
+                cmd.Parameters.AddWithValue("@Rating", Rating);
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                // Bağlantıyı kapat
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        public bool isServiceCommented(int ServiceId, SqlConnection con)
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader = null;
+
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = @"SELECT *
+                    FROM ServiceComments 
+                    WHERE ServiceID = @ServiceID";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@ServiceID", ServiceId);
+
+                reader = cmd.ExecuteReader();
+
+                if (reader.HasRows) // HasRows + Read yerine direkt Read
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+
+        }
+    }
 }

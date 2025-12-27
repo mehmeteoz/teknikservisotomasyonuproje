@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.formTitle = new System.Windows.Forms.Label();
-            this.exit = new System.Windows.Forms.Button();
             this.cihazTipiLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,11 +48,12 @@
             this.raporBtn = new System.Windows.Forms.Button();
             this.talepIptalBtn = new System.Windows.Forms.Button();
             this.commentBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.acceptPriceBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.priceLbl = new System.Windows.Forms.Label();
             this.rejectPriceBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -80,20 +80,6 @@
             this.formTitle.TabIndex = 5;
             this.formTitle.Text = "Detaylar";
             this.formTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // exit
-            // 
-            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.exit;
-            this.exit.Location = new System.Drawing.Point(796, 12);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(64, 64);
-            this.exit.TabIndex = 4;
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // cihazTipiLbl
             // 
@@ -272,6 +258,7 @@
             this.raporBtn.TabIndex = 20;
             this.raporBtn.Text = "Talepi Raporla";
             this.raporBtn.UseVisualStyleBackColor = false;
+            this.raporBtn.Click += new System.EventHandler(this.raporBtn_Click);
             // 
             // talepIptalBtn
             // 
@@ -298,15 +285,7 @@
             this.commentBtn.TabIndex = 22;
             this.commentBtn.Text = "Servisi Yorumla!";
             this.commentBtn.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 111);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 280);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
             // 
             // acceptPriceBtn
             // 
@@ -354,6 +333,29 @@
             this.rejectPriceBtn.Text = "Ücreti Reddet";
             this.rejectPriceBtn.UseVisualStyleBackColor = false;
             this.rejectPriceBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 111);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(280, 280);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.exit;
+            this.exit.Location = new System.Drawing.Point(796, 12);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(64, 64);
+            this.exit.TabIndex = 4;
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // Detaylar
             // 

@@ -117,6 +117,7 @@
             // raporBtn
             // 
             this.raporBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.raporBtn.Enabled = false;
             this.raporBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.raporBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.raporBtn.ForeColor = System.Drawing.Color.White;
@@ -126,6 +127,7 @@
             this.raporBtn.TabIndex = 40;
             this.raporBtn.Text = "Talepi Raporla";
             this.raporBtn.UseVisualStyleBackColor = false;
+            this.raporBtn.Visible = false;
             // 
             // silBtn
             // 

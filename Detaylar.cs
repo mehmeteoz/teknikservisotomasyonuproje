@@ -51,54 +51,68 @@ namespace TeknikServisOtomasyonuProje
             rejectPriceBtn.Enabled = false;
             rejectPriceBtn.Visible = false;
 
-            string userRole = fonksiyonlar.GetUserRole(userID, con);
-            if (userRole == "Staff")
-            {
-                acceptBtn.Enabled = true; //
-                acceptBtn.Visible = true;
-                raporBtn.Enabled = true; //
-                raporBtn.Visible = true;
-                fotoDownloadBtn.Enabled = true;
-                fotoDownloadBtn.Visible = true;
-            }
-            else if (userRole == "Admin")
-            {
-                talepIptalBtn.Enabled = true; //
-                talepIptalBtn.Visible = true;
-                fotoDownloadBtn.Enabled = true;
-                fotoDownloadBtn.Visible = true;
-            }
-            else if (userRole == "Customer")
-            {
-
-            }
-
             List<UserServices> service = new List<UserServices>();
             service = fonksiyonlar.GetServiceById(serviceID, con);
 
             List<ServiceOperations> serviceOperations = new List<ServiceOperations>();
-            if (service[0].Status == "Ücret Onayı Bekleniyor")
+
+            string userRole = fonksiyonlar.GetUserRole(userID, con);
+            if (userRole == "Staff")
             {
-                serviceOperations = fonksiyonlar.GetServiceOperationsByServiceId(serviceID, con);
-                priceLbl.Text = serviceOperations[0].Cost.ToString("C2") + " TL";
-                price = serviceOperations[0].Cost.ToString("C2") + " TL";
-                acceptPriceBtn.Enabled = true; //
-                acceptPriceBtn.Visible = true;
-                priceLbl.Visible = true;
-                label2.Visible = true;
-                rejectPriceBtn.Enabled = true;
-                rejectPriceBtn.Visible = true;
+                fotoDownloadBtn.Enabled = true; //
+                fotoDownloadBtn.Visible = true;
+                if (service[0].Status == "Talep Alındı")
+                {
+                    raporBtn.Enabled = true; //
+                    raporBtn.Visible = true;
+                    acceptBtn.Enabled = true; //
+                    acceptBtn.Visible = true;
+                }
             }
-            else if (service[0].Status == "Talep Alındı")
+            else if (userRole == "Admin")
             {
-                silBtn.Enabled = true; //
-                silBtn.Visible = true;
+                fotoDownloadBtn.Enabled = true; //
+                fotoDownloadBtn.Visible = true;
+                if (service[0].Status == "Talep Alındı" || service[0].Status == "Rapor Edildi")
+                {
+                    talepIptalBtn.Enabled = true; //
+                    talepIptalBtn.Visible = true;
+                    
+                }
             }
-            else if (service[0].Status == "Tamamlandı")
+            else if (userRole == "Customer")
             {
-                commentBtn.Enabled = true; //
-                commentBtn.Visible = true;
+                if (service[0].Status == "Ücret Onayı Bekleniyor")
+                {
+                    serviceOperations = fonksiyonlar.GetServiceOperationsByServiceId(serviceID, con);
+                    priceLbl.Text = serviceOperations[0].Cost.ToString("C2") + " TL";
+                    price = serviceOperations[0].Cost.ToString("C2") + " TL";
+                    acceptPriceBtn.Enabled = true; //
+                    acceptPriceBtn.Visible = true;
+                    priceLbl.Visible = true;
+                    label2.Visible = true;
+                    rejectPriceBtn.Enabled = true;
+                    rejectPriceBtn.Visible = true;
+                }
+                else if (service[0].Status == "Talep Alındı")
+                {
+                    silBtn.Enabled = true; //
+                    silBtn.Visible = true;
+                }
+                else if (service[0].Status == "Tamamlandı")
+                {
+                    if (!fonksiyonlar.isServiceCommented(serviceID,con))
+                    {
+                        commentBtn.Enabled = true; //
+                        commentBtn.Visible = true;
+                    }
+                    
+                }
+
             }
+
+
+                
 
                 resimIsim = "Servis_" + serviceID.ToString() + "_" + service[0].Brand + "_" + service[0].DeviceType;
 
@@ -171,6 +185,32 @@ namespace TeknikServisOtomasyonuProje
 
             if (!fonksiyonlar.RejectPriceOfService(serviceID, con)) return;
             this.Close();
+        }
+
+        private void raporBtn_Click(object sender, EventArgs e)
+        {
+            /*
+            if (!fonksiyonlar.ReportServiceByTechnicianID(serviceID, userID, "desc", con))
+            {
+                MessageBox.Show("Rapor edilirken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Servis rapor edildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+            */
+            ReportForm reportForm = new ReportForm(serviceID, userID, this);
+            //reportForm.Show();
+            // open in middle of the screen
+            reportForm.StartPosition = FormStartPosition.CenterScreen;
+            reportForm.Show(); // 
+
+        }
+
+        private void commentBtn_Click(object sender, EventArgs e)
+        {
+            CommentForm commentForm = new CommentForm(serviceID, userID, this);
+            commentForm.StartPosition = FormStartPosition.CenterScreen;
+            commentForm.Show();
         }
     }
 }

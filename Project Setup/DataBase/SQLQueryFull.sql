@@ -51,7 +51,7 @@ CREATE TABLE ServiceRecords (
         'İşlemde',
         'Teslime Hazır',
         'Tamamlandı',
-        'Raporlandı',
+        'Rapor Edildi',
         'İptal Edildi'
     )),
     CreatedAt DATETIME DEFAULT(GETDATE()),
@@ -79,6 +79,16 @@ CREATE TABLE ServiceComments (
     CreatedAt DATETIME DEFAULT(GETDATE()),
     FOREIGN KEY (ServiceID) REFERENCES ServiceRecords(ServiceID),
     FOREIGN KEY (CustomerID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE ServiceReports (   
+    ReportID INT PRIMARY KEY IDENTITY(1,1),
+    ServiceID INT NOT NULL,
+    TechnicianID INT NOT NULL,
+    Description NVARCHAR(MAX) NOT NULL,
+    CreatedAt DATETIME DEFAULT(GETDATE()),
+    FOREIGN KEY (ServiceID) REFERENCES ServiceRecords(ServiceID),
+    FOREIGN KEY (TechnicianID) REFERENCES Users(UserID)
 );
 
 

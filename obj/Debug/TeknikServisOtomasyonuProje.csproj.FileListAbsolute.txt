@@ -43,3 +43,5 @@ C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServi
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.Detaylar.resources
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.TeknisyenArayuz.resources
 C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.DetaylarTeknik.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.ReportForm.resources
+C:\Users\user\Documents\GitHub\teknikservisotomasyonuproje\obj\Debug\TeknikServisOtomasyonuProje.CommentForm.resources
