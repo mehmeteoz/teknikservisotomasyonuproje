@@ -25,12 +25,15 @@ CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     Role NVARCHAR(20) NOT NULL
         CHECK (Role IN ('Customer', 'Staff', 'Admin', 'Accountant', 'Warehouse')),
-    Email NVARCHAR(100) UNIQUE NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
     PasswordHash NVARCHAR(255) NOT NULL,
     FirstName NVARCHAR(50) NOT NULL,
     LastName NVARCHAR(50) NOT NULL,
-    Phone NVARCHAR(20) UNIQUE NOT NULL,
-    CreatedAt DATETIME DEFAULT(GETDATE())
+    Phone NVARCHAR(20) NOT NULL,
+    CreatedAt DATETIME DEFAULT(GETDATE()),
+
+    CONSTRAINT UQ_Users_Email UNIQUE (Email),
+    CONSTRAINT UQ_Users_Phone UNIQUE (Phone)
 );
 
 CREATE TABLE ServiceRecords (

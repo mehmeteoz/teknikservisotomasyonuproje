@@ -235,43 +235,71 @@ namespace TeknikServisOtomasyonuProje
             return services;
         }
 
-        public List<UserServices> GetGotServices(SqlConnection sqlConnection, string userRole = "Staff")
+        
+
+        public List<UserServices> GetGotServices(SqlConnection sqlConnection, string userRole = "Staff",
+            /* filtreler */ string cihazTipi = "Tümü", string marka = "Tümü", string tarih = "En Yeni", string musteriTelNo = "")
         {
             List<UserServices> services = new List<UserServices>();
             string query = string.Empty;
+            query = @"
+            SELECT SR.* 
+            FROM ServiceRecords SR
+            INNER JOIN Users U ON SR.CustomerID = U.UserID
+            WHERE 1 = 1 ";
             if (userRole == "Staff")
             {
-                query = @"
-                    SELECT * 
-                    FROM ServiceRecords 
-                    WHERE Status = 'Talep Alındı' 
-                    ORDER BY CreatedAt DESC";
+
+                query += @"
+                    AND Status = 'Talep Alındı' 
+                    ";//ORDER BY CreatedAt DESC
+
             }
             else if (userRole == "Accountant")
             {
-                query = @"
-                    SELECT * 
-                    FROM ServiceRecords 
+                query += @"
                     WHERE Status = 'Ücret Hesaplanıyor' 
-                    ORDER BY CreatedAt DESC";
+                    ";
             }
             else if (userRole == "Warehouse")
             {
-                query = @"
-                    SELECT * 
-                    FROM ServiceRecords 
-                    WHERE Status = 'Müşteriden Cihaz Bekleniyor' 
-                    OR Status = 'Teslime Hazır'
-                    ORDER BY CreatedAt DESC";
+                query += @"
+                    WHERE (Status = 'Müşteriden Cihaz Bekleniyor' 
+                    OR Status = 'Teslime Hazır') 
+                    ";
             }
             else if (userRole == "Admin")
             {
-                query = @"
-                    SELECT * 
-                    FROM ServiceRecords 
+                query += @"
                     WHERE Status = 'Rapor Edildi' 
-                    ORDER BY CreatedAt DESC";
+                    ";
             }
+
+            if (cihazTipi != "Tümü")
+            {
+                query += $" AND DeviceType = '{cihazTipi}'";
+            }
+            if (marka != "Tümü")
+            {
+                query += $" AND Brand = '{marka}'";
+            }
+            /*if (durum != "Tümü")
+            {
+                query += $" OR Status = '{durum}'";
+            }*/
+            if (!string.IsNullOrWhiteSpace(musteriTelNo))
+            {
+                query += $" AND U.Phone LIKE '{musteriTelNo}'";
+            }
+            if (tarih == "En Yeni")
+            {
+                query += $" ORDER BY CreatedAt DESC";
+            }
+            else if (tarih == "En Eski")
+            {
+                query += $" ORDER BY CreatedAt ASC";
+            }
+            
 
             SqlCommand cmd = new SqlCommand(query, sqlConnection);
 
@@ -321,8 +349,6 @@ namespace TeknikServisOtomasyonuProje
 
             return services;
         }
-
-
 
 
 

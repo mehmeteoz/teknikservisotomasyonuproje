@@ -314,7 +314,7 @@
             this.confirmPasswordTB.Location = new System.Drawing.Point(131, 229);
             this.confirmPasswordTB.Name = "confirmPasswordTB";
             this.confirmPasswordTB.Size = new System.Drawing.Size(210, 23);
-            this.confirmPasswordTB.TabIndex = 18;
+            this.confirmPasswordTB.TabIndex = 28;
             // 
             // checkBox2
             // 
@@ -338,7 +338,7 @@
             this.kayitBtn.Location = new System.Drawing.Point(131, 275);
             this.kayitBtn.Name = "kayitBtn";
             this.kayitBtn.Size = new System.Drawing.Size(173, 56);
-            this.kayitBtn.TabIndex = 16;
+            this.kayitBtn.TabIndex = 29;
             this.kayitBtn.Text = "Kayıt Ol";
             this.kayitBtn.UseVisualStyleBackColor = false;
             this.kayitBtn.Click += new System.EventHandler(this.kayitBtn_Click);
@@ -364,7 +364,7 @@
             this.passwordTB2.Location = new System.Drawing.Point(131, 193);
             this.passwordTB2.Name = "passwordTB2";
             this.passwordTB2.Size = new System.Drawing.Size(210, 23);
-            this.passwordTB2.TabIndex = 14;
+            this.passwordTB2.TabIndex = 27;
             // 
             // exit
             // 

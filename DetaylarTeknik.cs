@@ -38,6 +38,8 @@ namespace TeknikServisOtomasyonuProje
             raporBtn.Visible = false;
             fotoDownloadBtn.Enabled = false; //
             fotoDownloadBtn.Visible = false;
+            raporNedenPanel.Enabled = false;
+            raporNedenPanel.Visible = false;
             string userRole = fonksiyonlar.GetUserRole(userID, con);
             if (userRole == "Staff")
             {
@@ -117,6 +119,8 @@ namespace TeknikServisOtomasyonuProje
             {
                 if (service[0].Status == "Rapor Edildi")
                 {
+                    raporNedenPanel.Enabled = true;
+                    raporNedenPanel.Visible = true;
                     List<ServiceReports> serviceReports = new List<ServiceReports>();
                     serviceReports = fonksiyonlar.GetServiceReportByID(serviceID, con);
                     raporNedenTBx.Text = serviceReports[0].Description;

@@ -190,7 +190,7 @@ namespace TeknikServisOtomasyonuProje
         private void acceptPriceBtn_Click(object sender, EventArgs e)
         {
             // ücreti onayla butonu
-            DialogResult dialogResult = MessageBox.Show(("Bu ücreti onaylamak istediğinize emin misiniz? \nCihaz işleme geçicektir." + price), 
+            DialogResult dialogResult = MessageBox.Show(("Bu ücreti onaylamak istediğinize emin misiniz? \nCihaz işleme geçicektir.\n" + price), 
                 "Ücret Onayını Onayla", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No) return;
 

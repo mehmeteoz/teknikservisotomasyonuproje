@@ -112,9 +112,25 @@ namespace TeknikServisOtomasyonuProje
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Kayıt başarılı!");
             }
+            catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
+            {
+                if (ex.Message.Contains("UQ_Users_Email"))
+                {
+                    MessageBox.Show("Bu e-posta adresi zaten kayıtlı.");
+                }
+                else if (ex.Message.Contains("UQ_Users_Phone"))
+                {
+                    MessageBox.Show("Bu telefon numarası zaten kayıtlı.");
+                }
+                else
+                {
+                    MessageBox.Show("Bu bilgilerle kayıt zaten mevcut.");
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata: " + ex.Message);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Giriş Yaparken Bir Hata Oluştu.");
             }
             finally
             {

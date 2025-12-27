@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TeknikServisOtomasyonuProje
 {
@@ -55,6 +57,11 @@ namespace TeknikServisOtomasyonuProje
             PopulateServices(isTechnician, isWorksOn, isAcc, isWareh, isAdm);
         }
 
+        
+        string selectedCihazTipi = "Tümü";
+        string selectedMarka = "Tümü";
+        string selectedTarih = "En Yeni";
+        string selectedMusteriTel = "";
         private void PopulateServices(bool isTechnician = false, bool isWorksOn = false, bool isAccountant = false, bool isWarehouse = false, bool isAdmin = false)
         {
             // Clear existing controls
@@ -73,6 +80,10 @@ namespace TeknikServisOtomasyonuProje
             if (isTechnician)
             {
                 textTalepler = "Talepler";
+                if (isWorksOn)
+                {
+                    textTalepler = "Taleplerim";
+                }
             }
             else if (isAccountant)
             {
@@ -104,6 +115,176 @@ namespace TeknikServisOtomasyonuProje
             };
 
             headerPanel.Controls.Add(taleplerimLabel);
+
+            FlowLayoutPanel filterPanel = new FlowLayoutPanel
+            {
+                Height = 100,
+                Width = requestsFLPanel.ClientSize.Width - 30, // scrollbar payı
+                BackColor = Color.FromArgb(25, 25, 25),
+                Margin = new Padding(5, 0, 5, 15)
+            };
+
+            Label CreateFilterLabel(string text)
+            {
+                return new Label
+                {
+                    Text = text,
+                    ForeColor = Color.White,
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    AutoSize = true,
+                    Margin = new Padding(10, 20, 5, 0)
+                };
+            }
+
+            ComboBox CreateFilterComboBox()
+            {
+                return new ComboBox
+                {
+                    Width = 140,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    Margin = new Padding(0, 15, 15, 0),
+                };
+            }
+
+            Label cihazTipiLbl = CreateFilterLabel("Cihaz Tipi");
+            ComboBox cihazTipiCBx = CreateFilterComboBox();
+            
+            
+            cihazTipiCBx.Items.AddRange(new string[]
+            {
+            "Tümü",
+            "Telefon",
+            "Masaüstü",
+            "Laptop"
+            });
+            cihazTipiCBx.SelectedItem = selectedCihazTipi;
+
+            cihazTipiCBx.SelectedIndexChanged += (s, e) =>
+            {
+                selectedCihazTipi = cihazTipiCBx.SelectedItem.ToString();
+                //ApplyFilters();
+            };
+            
+
+            Label markaLbl = CreateFilterLabel("Marka");
+            ComboBox markaCBx = CreateFilterComboBox();
+
+            
+            markaCBx.Items.AddRange(new string[]
+            {
+            "Tümü",
+            "Apple",
+            "Samsung",
+            "Lenovo",
+            "Asus",
+            "Acer"
+            });
+            markaCBx.SelectedItem = selectedMarka;
+
+            markaCBx.SelectedIndexChanged += (s, e) =>
+            {
+                selectedMarka = markaCBx.SelectedItem.ToString();
+                //ApplyFilters();
+            };
+            
+
+            Label tarihLbl = CreateFilterLabel("Tarih");
+            ComboBox tarihCBx = CreateFilterComboBox();
+
+            
+            tarihCBx.Items.AddRange(new string[]
+            {
+            "En Yeni",
+            "En Eski"
+            });
+            tarihCBx.SelectedItem = selectedTarih;
+
+
+            tarihCBx.SelectedIndexChanged += (s, e) =>
+            {
+                selectedTarih = tarihCBx.Text.ToString(); // sıralama olduğu için nullable bırakıyoruz
+                //ApplyFilters();
+            };
+            /*
+            Label durumLbl = CreateFilterLabel("Durum");
+            ComboBox durumCBx = CreateFilterComboBox();
+
+
+            durumCBx.Items.AddRange(new string[]
+            {
+                "Tümü",
+                "Beklemede",
+                "Devam Ediyor",
+                "Tamamlandı"
+            });
+            durumCBx.Text = "Tümü";
+
+            durumCBx.SelectedIndexChanged += (s, e) =>
+            {
+                selectedDurum = durumCBx.SelectedItem.ToString();
+                //ApplyFilters();
+            };
+            */
+
+            Label musteriTelLbl = CreateFilterLabel("Müşteri Telefon");
+            TextBox musteriTelTBx = new TextBox
+            {
+                Width = 140,
+                Margin = new Padding(0, 15, 15, 0),
+            };
+            musteriTelTBx.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(musteriTelTBx.Text)) return;
+                selectedMusteriTel = musteriTelTBx.Text.Trim();
+                selectedMusteriTel = selectedMusteriTel[0] == '0' ? selectedMusteriTel.Substring(1) : selectedMusteriTel; // başında sıfır olmasın
+            };
+
+
+
+            Button filtreUygulaBtn = new Button
+            {
+                Text = "Uygula",
+                ForeColor = Color.White,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                AutoSize = true,
+                Margin = new Padding(10, 20, 5, 0)
+            };
+            filtreUygulaBtn.Click += (s, e) =>
+            {
+                PopulateServices(
+                    isTechnician: isTechnician,
+                    isWorksOn: isWorksOn,
+                    isAccountant: isAccountant,
+                    isWarehouse: isWarehouse,
+                    isAdmin: isAdmin
+                );
+            };
+
+
+            filterPanel.Controls.Add(cihazTipiLbl);
+            filterPanel.Controls.Add(cihazTipiCBx);
+
+            filterPanel.Controls.Add(markaLbl);
+            filterPanel.Controls.Add(markaCBx);
+
+            filterPanel.Controls.Add(tarihLbl);
+            filterPanel.Controls.Add(tarihCBx);
+
+            filterPanel.Controls.Add(musteriTelLbl);
+            filterPanel.Controls.Add(musteriTelTBx);
+
+            /*filterPanel.Controls.Add(durumLbl);
+            filterPanel.Controls.Add(durumCBx);*/
+
+            filterPanel.Controls.Add(filtreUygulaBtn);
+
+
+            if ((isTechnician || isAccountant || isWarehouse || isAdmin) && !isWorksOn)
+            {
+                requestsFLPanel.Controls.Add(filterPanel);
+                requestsFLPanel.SetFlowBreak(filterPanel, true);
+            }
+
             requestsFLPanel.Controls.Add(headerPanel);
             requestsFLPanel.SetFlowBreak(headerPanel, true); // tek satır kaplasın
 
@@ -122,19 +303,19 @@ namespace TeknikServisOtomasyonuProje
                     if (isWorksOn)
                         services = fonksiyonlar.GetTechniciansServices(CurrentUserID ,con);
                     else
-                        services = fonksiyonlar.GetGotServices(con);
+                        services = fonksiyonlar.GetGotServices(con, "Staff", selectedCihazTipi, selectedMarka, selectedTarih, selectedMusteriTel);
                 }
                 else if (isAccountant)
                 {
-                    services = fonksiyonlar.GetGotServices(con, "Accountant");
+                    services = fonksiyonlar.GetGotServices(con, "Accountant", selectedCihazTipi, selectedMarka, selectedTarih, selectedMusteriTel);
                 }
                 else if (isWarehouse)
                 {
-                    services = fonksiyonlar.GetGotServices(con, "Warehouse");
+                    services = fonksiyonlar.GetGotServices(con, "Warehouse", selectedCihazTipi, selectedMarka, selectedTarih, selectedMusteriTel);
                 }
                 else if (isAdmin)
                 {
-                    services = fonksiyonlar.GetGotServices(con, "Admin");
+                    services = fonksiyonlar.GetGotServices(con, "Admin", selectedCihazTipi, selectedMarka, selectedTarih, selectedMusteriTel);
                 }
                 else
                 {
@@ -147,6 +328,10 @@ namespace TeknikServisOtomasyonuProje
                     if (isTechnician)
                     {
                         textTalep = "Henüz oluşturulmuş bir servis talebi yok.";
+                        if (isWorksOn)
+                        {
+                            textTalepler = "Henüz üzerinize kayıt edilmiş bir servis talebi yok.";
+                        }
                     }
                     else if (isAccountant)
                     {
