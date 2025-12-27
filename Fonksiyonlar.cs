@@ -258,20 +258,20 @@ namespace TeknikServisOtomasyonuProje
             else if (userRole == "Accountant")
             {
                 query += @"
-                    WHERE Status = 'Ücret Hesaplanıyor' 
+                    AND Status = 'Ücret Hesaplanıyor' 
                     ";
             }
             else if (userRole == "Warehouse")
             {
                 query += @"
-                    WHERE (Status = 'Müşteriden Cihaz Bekleniyor' 
+                    AND (Status = 'Müşteriden Cihaz Bekleniyor' 
                     OR Status = 'Teslime Hazır') 
                     ";
             }
             else if (userRole == "Admin")
             {
                 query += @"
-                    WHERE Status = 'Rapor Edildi' 
+                    AND Status = 'Rapor Edildi' 
                     ";
             }
 
