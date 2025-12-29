@@ -181,7 +181,15 @@
     <None Include="Project Setup\Tasarım\exit.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\close.png" />
+    <None Include="resources\edit.png" />
+    <None Include="resources\approved.png" />
+    <None Include="resources\clipboard.png" />
+    <None Include="resources\click.png" />
+    <None Include="resources\camera.png" />
+    <None Include="resources\ChatGPT Image Dec 28, 2025, 10_45_10 PM.png" />
     <Content Include="resources\images.jpg" />
+    <None Include="resources\user %281%29.png" />
     <None Include="resources\images1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

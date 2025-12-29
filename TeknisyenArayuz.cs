@@ -55,6 +55,7 @@ namespace TeknikServisOtomasyonuProje
             {
                 button2.Visible = false;
                 button2.Enabled = false;
+                pictureBox3.Visible = false;
             }
         }
 
@@ -70,6 +71,11 @@ namespace TeknikServisOtomasyonuProje
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void formTitle_Click(object sender, EventArgs e)
         {
 
         }
