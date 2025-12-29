@@ -112,7 +112,30 @@ namespace TeknikServisOtomasyonuProje
 
         private void descTBx_TextChanged(object sender, EventArgs e)
         {
+            makeTextShorter(modelTBx, 300);
+        }
 
+        private void modelTBx_TextChanged(object sender, EventArgs e)
+        {
+            makeTextShorter(modelTBx, 50);
+        }
+
+        private void makeTextShorter(TextBox textBox, int afterNumber = 50)
+        {
+            if (modelTBx.Text.Length > 50)
+            {
+                int cursorPos = modelTBx.SelectionStart;
+
+                modelTBx.Text = modelTBx.Text.Substring(0, 50);
+
+                // İmleci sona ya da eski pozisyona al
+                modelTBx.SelectionStart = Math.Min(cursorPos, 50);
+            }
+        }
+
+        private void seriNoTBx_TextChanged(object sender, EventArgs e)
+        {
+            makeTextShorter(seriNoTBx, 50);
         }
     }
 }

@@ -482,7 +482,7 @@ namespace TeknikServisOtomasyonuProje
             // === PANEL (KART) ===
             Panel panel = new Panel();
             panel.Width = 220;
-            panel.Height = 300;
+            panel.Height = 330;
             panel.Margin = new Padding(10);
             panel.BackColor = Color.FromArgb(64, 64, 64);
             panel.BorderStyle = BorderStyle.FixedSingle;
@@ -790,6 +790,8 @@ namespace TeknikServisOtomasyonuProje
             }
         }
 
+        
+
         public bool ChangeServiceStatus(int ServiceId, string NewStatus, SqlConnection con)
         {
             try
@@ -969,8 +971,7 @@ namespace TeknikServisOtomasyonuProje
 
         public bool GetDeviceFromCustomer(int serviceID, SqlConnection con)
         {
-            return AddToServiceOperations(serviceID, "Durum değişti: Cihaz Kontrol Ediliyor", con)
-           &&  ChangeServiceStatus(serviceID, "Cihaz Kontrol Ediliyor", con);
+            return ChangeServiceStatus(serviceID, "Cihaz Kontrol Ediliyor", con);
         }
 
         public bool GiveDeviceToCustomer(int serviceID, SqlConnection con)
@@ -1132,10 +1133,11 @@ namespace TeknikServisOtomasyonuProje
         public DateTime? GetControlStartFromOperations(int serviceId, SqlConnection con)
         {
             string query = @"
-            SELECT MIN(PerformedAt)
-            FROM ServiceOperations
-            WHERE ServiceID = @ServiceID
-            AND Description = N'Durum değişti: Cihaz Kontrol Ediliyor'";
+            SELECT MIN(SO.PerformedAt)
+            FROM ServiceOperations SO
+            INNER JOIN ServiceRecords SR ON SR.ServiceID = SO.ServiceID 
+            WHERE SO.ServiceID = @ServiceID
+            AND SR.Status = 'İşlemde'";
 
             try
             {

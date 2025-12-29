@@ -238,6 +238,18 @@ namespace TeknikServisOtomasyonuProje
                 selectedMusteriTel = musteriTelTBx.Text.Trim();
                 selectedMusteriTel = selectedMusteriTel[0] == '0' ? selectedMusteriTel.Substring(1) : selectedMusteriTel; // başında sıfır olmasın
             };
+            musteriTelTBx.TextChanged += (s, e) =>
+            {
+                if (string.IsNullOrEmpty(musteriTelTBx.Text)) return;
+                if (musteriTelTBx.Text[0] != '0')
+                {
+                    musteriTelTBx.Text = "0" + musteriTelTBx.Text;
+                    musteriTelTBx.SelectionStart = musteriTelTBx.Text.Length;
+                }
+                if (string.IsNullOrWhiteSpace(musteriTelTBx.Text)) return;
+                selectedMusteriTel = musteriTelTBx.Text.Trim();
+                selectedMusteriTel = selectedMusteriTel[0] == '0' ? selectedMusteriTel.Substring(1) : selectedMusteriTel; // başında sıfır olmasın
+            };
 
 
 
@@ -258,6 +270,7 @@ namespace TeknikServisOtomasyonuProje
                     isWarehouse: isWarehouse,
                     isAdmin: isAdmin
                 );
+                musteriTelTBx.Text = selectedMusteriTel;
             };
 
 
@@ -321,6 +334,7 @@ namespace TeknikServisOtomasyonuProje
                 {
                     services = fonksiyonlar.GetUserServices(CurrentUserID, con);
                 }
+                musteriTelTBx.Text = "0";
 
                 if (services.Count == 0)
                 {
