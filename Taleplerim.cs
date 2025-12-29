@@ -429,7 +429,7 @@ namespace TeknikServisOtomasyonuProje
                     }
                     detay.StartPosition = FormStartPosition.CenterScreen;
 
-                    Panel card = fonksiyonlar.CreateServiceCard(service, detay);
+                    Panel card = fonksiyonlar.CreateServiceCard(service, detay, connect.connectToSQL());
                     requestsFLPanel.Controls.Add(card);
                 }
             }

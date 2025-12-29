@@ -477,7 +477,7 @@ namespace TeknikServisOtomasyonuProje
 
 
 
-        public Panel CreateServiceCard(UserServices service, Form formToOpen)
+        public Panel CreateServiceCard(UserServices service, Form formToOpen, SqlConnection con)
         {
             // === PANEL (KART) ===
             Panel panel = new Panel();
@@ -549,6 +549,16 @@ namespace TeknikServisOtomasyonuProje
             else
                 lblStatus.ForeColor = Color.White;
 
+            // === KALAN SÜRE LABEL ===
+            Label lblRemaining = new Label();
+            lblRemaining.Name = "lblRemaining";
+            lblRemaining.Dock = DockStyle.Top;
+            lblRemaining.Padding = new Padding(5);
+            lblRemaining.ForeColor = Color.Gold;
+            lblRemaining.Visible = false; // default gizli
+
+
+
             // === DETAY BUTTON ===
             Button lblDetail = new Button();
             lblDetail.Text = "Detayları Görüntüle";
@@ -573,8 +583,44 @@ namespace TeknikServisOtomasyonuProje
             };
 
 
+            bool countdownActive =
+            service.Status == "Cihaz Kontrol Ediliyor" ||
+            service.Status == "Ücret Hesaplanıyor" ||
+            service.Status == "Ücret Onayı Bekleniyor" ||
+            service.Status == "İşlemde" ||
+            service.Status == "Teslime Hazır";
+
+            if (countdownActive)
+            {
+                DateTime? start = GetControlStartFromOperations(service.ServiceID, con);
+
+                if (start != null)
+                {
+                    DateTime deadline = start.Value.AddDays(20);
+                    TimeSpan remaining = deadline - DateTime.Now;
+
+                    lblRemaining.Visible = true;
+
+                    if (remaining.TotalSeconds <= 0)
+                    {
+                        lblRemaining.Text = "Kalan Süre: SÜRE DOLDU!";
+                        lblRemaining.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        lblRemaining.Text =
+                            $"Kalan Süre: {remaining.Days} gün {remaining.Hours} saat {remaining.Minutes} dk";
+
+                        lblRemaining.ForeColor =
+                            remaining.Days <= 2 ? Color.OrangeRed : Color.Gold;
+                    }
+                }
+            }
+
+
             // === CONTROLLERİ EKLE (TERSTEN) ===
             panel.Controls.Add(lblStatus);
+            panel.Controls.Add(lblRemaining);
             panel.Controls.Add(lblModel);
             panel.Controls.Add(lblBrand);
             panel.Controls.Add(pic);
@@ -586,6 +632,8 @@ namespace TeknikServisOtomasyonuProje
 
             return panel;
         }
+
+
 
 
         public void AddClickRecursive(Control control, int id)
@@ -921,7 +969,8 @@ namespace TeknikServisOtomasyonuProje
 
         public bool GetDeviceFromCustomer(int serviceID, SqlConnection con)
         {
-            return ChangeServiceStatus(serviceID, "Cihaz Kontrol Ediliyor", con);
+            return AddToServiceOperations(serviceID, "Durum değişti: Cihaz Kontrol Ediliyor", con)
+           &&  ChangeServiceStatus(serviceID, "Cihaz Kontrol Ediliyor", con);
         }
 
         public bool GiveDeviceToCustomer(int serviceID, SqlConnection con)
@@ -1080,6 +1129,34 @@ namespace TeknikServisOtomasyonuProje
 
         }
 
+        public DateTime? GetControlStartFromOperations(int serviceId, SqlConnection con)
+        {
+            string query = @"
+            SELECT MIN(PerformedAt)
+            FROM ServiceOperations
+            WHERE ServiceID = @ServiceID
+            AND Description = N'Durum değişti: Cihaz Kontrol Ediliyor'";
+
+            try
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@ServiceID", serviceId);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result == null || result == DBNull.Value) return null;
+                    return Convert.ToDateTime(result);
+                }
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+
         public List<ServiceReports> GetServiceReportByID(int ServiceId, SqlConnection con)
         {
             List<ServiceReports> reports = new List<ServiceReports>();
@@ -1125,4 +1202,5 @@ namespace TeknikServisOtomasyonuProje
             return reports;
         }
     }
+
 }
