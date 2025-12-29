@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Taleplerim));
             this.requestsFLPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.Controls.Add(this.requestsFLPanel);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Taleplerim";
             this.Text = "Taleplerim";
             this.Load += new System.EventHandler(this.Taleplerim_Load);

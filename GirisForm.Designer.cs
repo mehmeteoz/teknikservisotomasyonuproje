@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GirisForm));
             this.KullaniciGirisBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.YetkiliGirisBtn = new System.Windows.Forms.Button();
@@ -106,6 +107,7 @@
             this.Controls.Add(this.KullaniciGirisBtn);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "GirisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

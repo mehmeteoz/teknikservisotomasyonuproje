@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Detaylar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.formTitle = new System.Windows.Forms.Label();
+            this.exit = new System.Windows.Forms.Button();
             this.cihazTipiLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,7 +55,6 @@
             this.priceLbl = new System.Windows.Forms.Label();
             this.rejectPriceBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             // formTitle
             // 
             this.formTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.formTitle.Font = new System.Drawing.Font("Nunito", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.formTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.formTitle.ForeColor = System.Drawing.Color.White;
             this.formTitle.Location = new System.Drawing.Point(12, 22);
             this.formTitle.Name = "formTitle";
@@ -80,63 +81,77 @@
             this.formTitle.TabIndex = 5;
             this.formTitle.Text = "Detaylar";
             // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.close;
+            this.exit.Location = new System.Drawing.Point(796, 12);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(64, 64);
+            this.exit.TabIndex = 4;
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // cihazTipiLbl
             // 
             this.cihazTipiLbl.AutoSize = true;
-            this.cihazTipiLbl.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cihazTipiLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cihazTipiLbl.Location = new System.Drawing.Point(475, 111);
             this.cihazTipiLbl.Name = "cihazTipiLbl";
-            this.cihazTipiLbl.Size = new System.Drawing.Size(101, 26);
+            this.cihazTipiLbl.Size = new System.Drawing.Size(98, 24);
             this.cihazTipiLbl.TabIndex = 3;
             this.cihazTipiLbl.Text = "Yükleniyor";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(335, 111);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 26);
+            this.label1.Size = new System.Drawing.Size(109, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "Cihaz Tipi:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.Location = new System.Drawing.Point(626, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 26);
+            this.label3.Size = new System.Drawing.Size(72, 24);
             this.label3.TabIndex = 5;
             this.label3.Text = "Marka:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.Location = new System.Drawing.Point(361, 146);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 26);
+            this.label4.Size = new System.Drawing.Size(74, 24);
             this.label4.TabIndex = 6;
             this.label4.Text = "Model:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.Location = new System.Drawing.Point(615, 146);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 26);
+            this.label5.Size = new System.Drawing.Size(86, 24);
             this.label5.TabIndex = 7;
             this.label5.Text = "Seri No:";
             // 
             // Açıklama
             // 
             this.Açıklama.AutoSize = true;
-            this.Açıklama.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Açıklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Açıklama.Location = new System.Drawing.Point(317, 332);
             this.Açıklama.Name = "Açıklama";
-            this.Açıklama.Size = new System.Drawing.Size(98, 26);
+            this.Açıklama.Size = new System.Drawing.Size(100, 24);
             this.Açıklama.TabIndex = 8;
             this.Açıklama.Text = "Açıklama:";
             // 
@@ -144,7 +159,7 @@
             // 
             this.fotoDownloadBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.fotoDownloadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.fotoDownloadBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.fotoDownloadBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.fotoDownloadBtn.ForeColor = System.Drawing.Color.White;
             this.fotoDownloadBtn.Location = new System.Drawing.Point(12, 397);
             this.fotoDownloadBtn.Name = "fotoDownloadBtn";
@@ -157,46 +172,46 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.Location = new System.Drawing.Point(308, 182);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 26);
+            this.label7.Size = new System.Drawing.Size(149, 24);
             this.label7.TabIndex = 11;
             this.label7.Text = "Talep Durumu:";
             // 
             // markaLbl
             // 
             this.markaLbl.AutoSize = true;
-            this.markaLbl.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.markaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.markaLbl.Location = new System.Drawing.Point(702, 111);
             this.markaLbl.Name = "markaLbl";
-            this.markaLbl.Size = new System.Drawing.Size(101, 26);
+            this.markaLbl.Size = new System.Drawing.Size(98, 24);
             this.markaLbl.TabIndex = 12;
             this.markaLbl.Text = "Yükleniyor";
             // 
             // modelLbl
             // 
             this.modelLbl.AutoSize = true;
-            this.modelLbl.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.modelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.modelLbl.Location = new System.Drawing.Point(475, 146);
             this.modelLbl.Name = "modelLbl";
-            this.modelLbl.Size = new System.Drawing.Size(101, 26);
+            this.modelLbl.Size = new System.Drawing.Size(98, 24);
             this.modelLbl.TabIndex = 13;
             this.modelLbl.Text = "Yükleniyor";
             // 
             // serialLbl
             // 
             this.serialLbl.AutoSize = true;
-            this.serialLbl.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.serialLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.serialLbl.Location = new System.Drawing.Point(702, 146);
             this.serialLbl.Name = "serialLbl";
-            this.serialLbl.Size = new System.Drawing.Size(101, 26);
+            this.serialLbl.Size = new System.Drawing.Size(98, 24);
             this.serialLbl.TabIndex = 14;
             this.serialLbl.Text = "Yükleniyor";
             // 
             // statusLbl
             // 
-            this.statusLbl.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.statusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.statusLbl.Location = new System.Drawing.Point(475, 182);
             this.statusLbl.Name = "statusLbl";
             this.statusLbl.Size = new System.Drawing.Size(280, 31);
@@ -221,7 +236,7 @@
             // 
             this.silBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.silBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.silBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.silBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.silBtn.ForeColor = System.Drawing.Color.White;
             this.silBtn.Location = new System.Drawing.Point(16, 546);
             this.silBtn.Name = "silBtn";
@@ -235,7 +250,7 @@
             // 
             this.acceptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.acceptBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.acceptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.acceptBtn.ForeColor = System.Drawing.Color.White;
             this.acceptBtn.Location = new System.Drawing.Point(691, 546);
             this.acceptBtn.Name = "acceptBtn";
@@ -249,7 +264,7 @@
             // 
             this.raporBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.raporBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.raporBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.raporBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.raporBtn.ForeColor = System.Drawing.Color.White;
             this.raporBtn.Location = new System.Drawing.Point(12, 497);
             this.raporBtn.Name = "raporBtn";
@@ -263,7 +278,7 @@
             // 
             this.talepIptalBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.talepIptalBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.talepIptalBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.talepIptalBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.talepIptalBtn.ForeColor = System.Drawing.Color.White;
             this.talepIptalBtn.Location = new System.Drawing.Point(157, 546);
             this.talepIptalBtn.Name = "talepIptalBtn";
@@ -276,7 +291,7 @@
             // 
             this.commentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.commentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.commentBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.commentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.commentBtn.ForeColor = System.Drawing.Color.White;
             this.commentBtn.Location = new System.Drawing.Point(528, 546);
             this.commentBtn.Name = "commentBtn";
@@ -290,7 +305,7 @@
             // 
             this.acceptPriceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.acceptPriceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.acceptPriceBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.acceptPriceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.acceptPriceBtn.ForeColor = System.Drawing.Color.White;
             this.acceptPriceBtn.Location = new System.Drawing.Point(431, 266);
             this.acceptPriceBtn.Name = "acceptPriceBtn";
@@ -303,16 +318,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(385, 218);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 26);
+            this.label2.Size = new System.Drawing.Size(65, 24);
             this.label2.TabIndex = 24;
             this.label2.Text = "Ücret:";
             // 
             // priceLbl
             // 
-            this.priceLbl.Font = new System.Drawing.Font("Nunito", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.priceLbl.Location = new System.Drawing.Point(475, 218);
             this.priceLbl.Name = "priceLbl";
             this.priceLbl.Size = new System.Drawing.Size(280, 45);
@@ -323,7 +338,7 @@
             // 
             this.rejectPriceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(249)))));
             this.rejectPriceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rejectPriceBtn.Font = new System.Drawing.Font("Nunito Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rejectPriceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rejectPriceBtn.ForeColor = System.Drawing.Color.White;
             this.rejectPriceBtn.Location = new System.Drawing.Point(582, 266);
             this.rejectPriceBtn.Name = "rejectPriceBtn";
@@ -341,20 +356,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // exit
-            // 
-            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.exit.Image = global::TeknikServisOtomasyonuProje.Properties.Resources.close;
-            this.exit.Location = new System.Drawing.Point(796, 12);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(64, 64);
-            this.exit.TabIndex = 4;
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // Detaylar
             // 
@@ -388,6 +389,7 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Detaylar";
             this.Text = "Detaylar";
             this.Load += new System.EventHandler(this.Detaylar_Load);

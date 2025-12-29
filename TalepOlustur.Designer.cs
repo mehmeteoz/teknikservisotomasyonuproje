@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TalepOlustur));
             this.label1 = new System.Windows.Forms.Label();
             this.cihazTipCBx = new System.Windows.Forms.ComboBox();
             this.markaCBx = new System.Windows.Forms.ComboBox();
@@ -257,6 +258,7 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TalepOlustur";
             this.Text = "TalepOlustur";
             this.Load += new System.EventHandler(this.TalepOlustur_Load);
